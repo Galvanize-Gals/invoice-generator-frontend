@@ -9,8 +9,8 @@
     <title>Sign-up!</title>
   </head>
 
-  <body class="is-mobile">
-    <header class="navbar" role="navigation" aria-label="main navigation">
+  <body class="is-mobile main">
+    <header class="navbar is-dark" role="navigation" aria-label="main navigation">
       <nav class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
@@ -65,9 +65,9 @@
         </div>
       </nav>
     </header>
-    <div class="signup hero is-large has-background-white-ter">
+    <div class="signup hero is-large">
       <section class="hero-body column is-one-third is-offset-4-desktop">
-        <form id="form" class="forms">
+        <form id="form" class="form">
           <span class="columns">
             <label class="label column is-half" for="first_name">First Name:
               <input class="input" id="first_name" type="text" placeholder="First Name" required validate>
@@ -96,10 +96,9 @@
           </span>
           <span class="column">
             <input class="button is-primary" type="submit">
+            <input class="button is-primary" type="reset">
             <a class="tag has-text-link" href="./login.html">Already have an account?</a>
           </span>
-
-
         </form>
       </section>
     </div>

@@ -1,2 +1,26 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
+
+header.navbar {
+
+  .main & {
+    background: none;
+  }
+}
+
+body {
+
+  &.main {
+    background: linear-gradient(transparentize($black, .5), transparentize($black, .4)), url('/images/desk.jpg') no-repeat;
+    background-size: cover;
+  }
+}
+
+.form {
+  background-color: transparentize($white, .1);
+  padding: 2rem;
+
+  .tag {
+    background: transparent;
+  }
+}
