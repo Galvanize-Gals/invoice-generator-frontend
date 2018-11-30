@@ -2,16 +2,16 @@
 @import "../node_modules/bulma/bulma.sass";
 
 header.navbar {
-
   .main & {
-    background: none;
+    background: transparentize($white, .2);
   }
 }
 
 body {
+  min-height: 100vh;
 
   &.main {
-    background: linear-gradient(transparentize($black, .5), transparentize($black, .4)), url('/images/desk.jpg') no-repeat;
+    background: linear-gradient(transparentize($black, .5), transparentize($black, .4)), url('/images/desk.jpg');
     background-size: cover;
   }
 }

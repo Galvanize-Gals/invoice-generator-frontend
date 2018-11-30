@@ -6747,11 +6747,13 @@ label.panel-block {
   padding: 3rem 1.5rem 6rem; }
 
 .main header.navbar {
-  background: none; }
+  background: rgba(255, 255, 255, 0.8); }
 
-body.main {
-  background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.6)), url("/images/desk.jpg") no-repeat;
-  background-size: cover; }
+body {
+  min-height: 100vh; }
+  body.main {
+    background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.6)), url("/images/desk.jpg");
+    background-size: cover; }
 
 .form {
   background-color: rgba(255, 255, 255, 0.9);
