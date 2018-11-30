@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Sign-up!</title>
+  </head>
+
+  <body class="is-mobile">
+    <header class="navbar" role="navigation" aria-label="main navigation">
+      <nav class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          </a>
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
+              </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="signup hero is-large has-background-white-ter">
+      <section class="hero-body column is-one-third is-offset-4-desktop">
+        <form id="form" class="forms">
+          <span class="columns">
+            <label class="label column is-half" for="first_name">First Name:
+              <input class="input" id="first_name" type="text" placeholder="First Name" required validate>
+            </label>
+            <label class="label column is-half" for="last_name">Last Name:
+              <input class="input" id="last_name" type="text" placeholder="Last Name" required validate>
+            </label>
+          </span>
+
+          <span class="columns">
+            <label class="label column is-full" for="company">Company/Organization:
+              <input class="input" id="company" type="text" placeholder="Acme Inc." validate>
+            </label>
+          </span>
+
+          <span class="columns">
+            <label class="label column is-full" for="email">Email:
+              <input class="input" id="email" type="email" placeholder="email@address.com" required validate>
+            </label>
+          </span>
+
+          <span class="columns">
+            <label class="label column is-full" for="passowrd">Password:
+              <input class="input" id="password" type="password" placeholder="******" required>
+            </label>
+          </span>
+          <span class="column">
+            <input class="button is-primary" type="submit">
+            <a class="tag has-text-link" href="./login.html">Already have an account?</a>
+          </span>
+
+
+        </form>
+      </section>
+    </div>
+  </body>
+
+</html>

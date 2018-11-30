@@ -1,0 +1,36 @@
+{
+  "name": "invoice-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass --omit-source-map-url sass/main.scss css/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "build": "browserify scripts/main.js -o bundle.js",
+    "watch": "watchify scripts/main.js -o bundle.js",
+    "dev-server": "live-server .",
+    "dev": "run-all \"npm run watch\" \"npm run dev-server\" \"npm run css-watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galvanize-Gals/invoice-generator-frontend.git"
+  },
+  "keywords": [],
+  "author": "Katrina Agustin, Jamie Kinkead, Celia Marshall, Sara Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Galvanize-Gals/invoice-generator-frontend/issues"
+  },
+  "homepage": "https://github.com/Galvanize-Gals/invoice-generator-frontend#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bulma": "^0.7.2"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "node-sass": "^4.10.0",
+    "run-all": "^1.0.1",
+    "watchify": "^3.11.0"
+  }
+}
