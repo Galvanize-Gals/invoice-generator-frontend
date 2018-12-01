@@ -6803,8 +6803,8 @@ body {
     line-height: 1rem; }
   .invoice .notes {
     margin-bottom: 2rem; }
-    .invoice .notes .title {
-      margin-bottom: .5rem; }
+  .invoice .title {
+    margin-bottom: .5rem; }
   .invoice .table td:nth-child(1) {
     width: 60%; }
   .invoice .table td:nth-child(2) {

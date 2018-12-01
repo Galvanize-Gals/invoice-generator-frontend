@@ -81,18 +81,24 @@
           </div>
 
           <div class="billing-details columns">
-            <div class="is-three-fifths-desktop column">
-              <h3 class="title is-4 has-text-primary">
+            <div class="is-three-fifths-desktop client column">
+              <h3 class="title is-5 has-text-primary">
+                Bill To
+              </h3>
+              <p class="has-text-grey content">
+                ${ business_name } <br />
+                ${ first_name } ${ last_name } <br />
+                ${ email }
+              </p>
+            </div>
+            <div class="column">
+              <h3 class="title is-5 has-text-primary">
                 Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
               </h3>
-            </div>
-
-            <div class="client column">
               <p class="has-text-primary content">
-                Bill to:&nbsp;<span class="has-text-grey">${ first_name } ${ last_name }</span> <br />
-                Date:&nbsp;<span class="has-text-grey">${ date_created }</span> <br />
-                Email:&nbsp;<span class="has-text-grey">${ email }</span> <br />
-                Amount:&nbsp;<span class="has-text-black">${ amount }</span>
+                Issued:&nbsp;<span class="has-text-grey">${ date_created }</span> <br />
+                Due:&nbsp;<span class="has-text-grey">${ date_due }</span> <br/>
+                Amount:&nbsp;<span class="has-text-black">${ total }</span>
               </p>
             </div>
           </div>
@@ -151,7 +157,7 @@
 
           <!-- invoice footer template start -->
           <div class="notes">
-            <h3 class="title is-4 has-text-primary">Notes</h3>
+            <h3 class="title is-5 has-text-primary">Notes</h3>
             <p class="content">
               ${ notes }
             </p>
