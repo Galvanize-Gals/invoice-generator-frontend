@@ -6805,6 +6805,9 @@ body {
 .invoice .billing-details {
   margin-top: 1rem; }
 
+.invoice .notes {
+  margin-bottom: 2rem; }
+
 .invoice-list {
   margin-bottom: 2rem; }
   @media screen and (min-width: 1088px) {

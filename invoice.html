@@ -61,12 +61,9 @@
       <!-- end of header template -->
     </header>
 
-    <section class="menu container row">
+    <section class="container">
       <div class="column is-two-thirds-desktop is-offset-2-desktop">
-        <h1 class="title is-3 has-text-white">Preview</h1>
-        <a href="./manage.html" class="button send is-primary is-medium">Send</a>
-        <a href="./manage.html" class="button edit is-link is-medium">Edit</a>
-        <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
+        <h1 class="title is-2 has-text-white">Preview</h1>
       </div>
     </section>
     <section class="preview container">
@@ -82,9 +79,9 @@
 
         <div class="billing-details columns">
           <div class="is-three-fifths-desktop column">
-            <p class="subtitle has-text-primary">
+            <h3 class="title is-4 has-text-primary">
               Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
-            </p>
+            </h3>
           </div>
 
           <div class="client column">
@@ -97,7 +94,7 @@
         </div>
         <hr>
 
-        <table class="services table is-fullwidth">
+        <table class="services table is-fullwidth is-hoverable">
           <thead>
             <tr>
               <th><span class="has-text-primary">Desc.</span></th>
@@ -106,6 +103,16 @@
               <th><span class="has-text-primary">Totals</span></th>
             </tr>
           </thead>
+          <tfoot>
+            <!-- totals template starts here -->
+            <tr class="totals">
+              <td></td>
+              <td></td>
+              <th><span class="has-text-primary">Total</span></th>
+              <td><span class="total">${ total }</span></td>
+            </tr>
+            <!-- totals template starts here -->
+          </tfoot>
           <tbody class="service-details">
             <tr class="line-item">
               <!-- line-item template starts here -->
@@ -127,25 +134,20 @@
               <td>4000</td>
               <td>4000</td>
             </tr>
-
-            <tr class="totals">
-              <!-- totals template starts here -->
-              <td></td>
-              <td></td>
-              <th><span class="has-text-primary">Total</span></th>
-              <td><span class="total">${ total }</span></td>
-              <!-- totals template starts here -->
-            </tr>
           </tbody>
         </table>
 
         <hr>
         <div class="notes">
-          <h3 class="subtitle has-text-primary">Notes:</h3>
+          <h3 class="title is-4 has-text-primary">Notes</h3>
           <p class="content">
             ${ notes }
           </p>
         </div>
+
+        <a href="./manage.html" class="button send is-primary is-medium">Send</a>
+        <a href="./manage.html" class="button edit is-link is-medium">Edit</a>
+        <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
       </div>
     </section>
     <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
