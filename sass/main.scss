@@ -12,6 +12,10 @@ header.navbar {
 
   .navbar-link {
     text-transform: capitalize;
+
+    @media screen and (max-width: $tablet) {
+      display: none;
+    }
   }
 
   .navbar-item span {
@@ -27,19 +31,9 @@ body {
   line-height: 1;
   min-height: 100vh;
 
-  .section {
-    border-radius: 6px;
-  }
-
   > .container {
 
-    &:not(.navbar &) {
-      padding: 1rem;
-    }
-
-    h1 {
-      margin-top: 4rem;
-    }
+    &:not(.navbar &) { padding: 1rem; }
 
     @media screen and (min-width: $desktop) {
       .options {
@@ -52,30 +46,23 @@ body {
 
 .card {
 
-  &.box {
-    padding: 0;
-  }
+  &.box { padding: 0; }
 
   .card-content {
-
-    .options & {
-      text-align: center;
-    }
+    .options & { text-align: center; }
   }
 }
 
 .form {
-  background-color: $white;
   padding: 2rem;
 
   label {
     font-size: 1.2rem;
     font-weight: 300;
 
-    input {
-      margin-top: .5rem;
-    }
+    input { margin-top: .5rem; }
   }
+
   .tag { background: transparent; }
 }
 
@@ -86,71 +73,71 @@ body {
 }
 
 .invoice {
-
-  .subtitle {
-    margin-bottom: 0;
-  }
-
-  p {
     line-height: 1.5rem;
-  }
 
-  .billing-details {
-    margin-top: 1rem;
+  .billing-details { margin-top: 1rem; }
+
+  .vendor p {
+    font-size: .85rem;
+    line-height: 1rem;
   }
 
   .notes {
     margin-bottom: 2rem;
+
+    .title { margin-bottom: .5rem; }
+  }
+
+
+  .table {
+
+    $tableDepth: (
+      1: (1, 60%),
+      2: (2, 10%),
+      3: (3, 10%),
+      4: (4, 20%)
+    );
+
+    @each $tableDepth, $td in $tableDepth {
+      $num: nth($td, 1);
+      $width: nth($td, 2);
+      td:nth-child( #{$num} ) { width: $width; }
+    }
   }
 }
 
 .invoice-list {
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $desktop) {
-    text-align: center;
-  }
+  @media screen and (min-width: $desktop) { text-align: center; }
 
   li {
     align-items: center;
 
-    div {
-      text-transform: capitalize;
-    }
+    div { text-transform: capitalize; }
 
     &:hover {
       background-color: $white-ter;
       transition: $transition;
     }
 
-    &:not(:last-child) {
-      border-bottom: 1px solid $white-ter;
-    }
+    &:not(:last-child) { border-bottom: 1px solid $white-ter; }
   }
 }
 
-footer {
-  padding: 3rem 1.5rem 6rem;
-}
+footer { padding: 3rem 1.5rem 6rem; }
 
 /* Utility */
+.notification { transition: $transition; }
+
 .mdi {
 
-  .card .card-content & {
-    font-size: 6rem;
-  }
-
-  .invoice-list li & {
-    vertical-align: sub;
-  }
+  .card .card-content & { font-size: 6rem; }
+  .invoice-list li & { vertical-align: sub; }
 }
 
 .hidden {
   opacity: 0;
   transition: $transition;
   visibility: none;
-}
-
-.notification {
-  transition: $transition;
 }

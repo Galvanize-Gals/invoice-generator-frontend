@@ -6752,6 +6752,9 @@ label.panel-block {
 
 header.navbar .navbar-link {
   text-transform: capitalize; }
+  @media screen and (max-width: 769px) {
+    header.navbar .navbar-link {
+      display: none; } }
 
 header.navbar .navbar-item span {
   font-size: 1.5rem;
@@ -6763,12 +6766,8 @@ body {
   background-size: cover auto;
   line-height: 1;
   min-height: 100vh; }
-  body .section {
-    border-radius: 6px; }
   body > .container {
     padding: 1rem; }
-  body > .container h1 {
-    margin-top: 4rem; }
   @media screen and (min-width: 1088px) {
     body > .container .options {
       margin: 0 auto;
@@ -6781,7 +6780,6 @@ body {
   text-align: center; }
 
 .form {
-  background-color: white;
   padding: 2rem; }
   .form label {
     font-size: 1.2rem;
@@ -6796,17 +6794,25 @@ body {
   .manage hr {
     margin-bottom: .5rem; }
 
-.invoice .subtitle {
-  margin-bottom: 0; }
-
-.invoice p {
+.invoice {
   line-height: 1.5rem; }
-
-.invoice .billing-details {
-  margin-top: 1rem; }
-
-.invoice .notes {
-  margin-bottom: 2rem; }
+  .invoice .billing-details {
+    margin-top: 1rem; }
+  .invoice .vendor p {
+    font-size: .85rem;
+    line-height: 1rem; }
+  .invoice .notes {
+    margin-bottom: 2rem; }
+    .invoice .notes .title {
+      margin-bottom: .5rem; }
+  .invoice .table td:nth-child(1) {
+    width: 60%; }
+  .invoice .table td:nth-child(2) {
+    width: 10%; }
+  .invoice .table td:nth-child(3) {
+    width: 10%; }
+  .invoice .table td:nth-child(4) {
+    width: 20%; }
 
 .invoice-list {
   margin-bottom: 2rem; }
@@ -6827,6 +6833,9 @@ footer {
   padding: 3rem 1.5rem 6rem; }
 
 /* Utility */
+.notification {
+  transition: all 0.3s ease; }
+
 .card .card-content .mdi {
   font-size: 6rem; }
 
@@ -6837,6 +6846,3 @@ footer {
   opacity: 0;
   transition: all 0.3s ease;
   visibility: none; }
-
-.notification {
-  transition: all 0.3s ease; }

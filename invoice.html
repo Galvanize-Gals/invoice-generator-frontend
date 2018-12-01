@@ -63,35 +63,42 @@
 
     <section class="container">
       <div class="column is-two-thirds-desktop is-offset-2-desktop">
-        <h1 class="title is-2 has-text-white">Preview</h1>
+        <h1 class="title is-1 has-text-white">Preview</h1>
       </div>
     </section>
     <section class="preview container">
       <div class="section invoice column is-two-thirds-desktop is-offset-2-desktop box">
 
-        <div class="vendor">
-          <h3 class="subtitle has-text-primary">${ business_name }</h3>
-          <p class="content">
-            ${ first_name } ${ last_name } <br/>
-            <a href="mailto:email@me.com?subject=Invoice%20${ invoice_number }">${ email }</a>
-          </p>
-        </div>
-
-        <div class="billing-details columns">
-          <div class="is-three-fifths-desktop column">
-            <h3 class="title is-4 has-text-primary">
-              Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
-            </h3>
-          </div>
-
-          <div class="client column">
-            <p class="has-text-primary content">
-              Bill to:&nbsp;<span class="has-text-grey">${ first_name } ${ last_name }</span> <br/>
-              Email:&nbsp;<span class="has-text-grey">${ email }</span> <br/>
-              Amount:&nbsp;<span class="has-text-black">${ amount }</span>
+        <span class="invoice-header">
+          <!-- billing header template start -->
+          <div class="vendor has-text-grey-light">
+            <p class="content">
+              Please remit payments to: <br/>
+              ${ business_name } <br/>
+              ${ first_name } ${ last_name } <br />
+              <a class="has-text-grey-light" href="mailto:email@me.com?subject=Invoice%20${ invoice_number }">${ email }</a>
             </p>
           </div>
-        </div>
+
+          <div class="billing-details columns">
+            <div class="is-three-fifths-desktop column">
+              <h3 class="title is-4 has-text-primary">
+                Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
+              </h3>
+            </div>
+
+            <div class="client column">
+              <p class="has-text-primary content">
+                Bill to:&nbsp;<span class="has-text-grey">${ first_name } ${ last_name }</span> <br />
+                Date:&nbsp;<span class="has-text-grey">${ date_created }</span> <br />
+                Email:&nbsp;<span class="has-text-grey">${ email }</span> <br />
+                Amount:&nbsp;<span class="has-text-black">${ amount }</span>
+              </p>
+            </div>
+          </div>
+          <!-- billing header template end -->
+        </span>
+
         <hr>
 
         <table class="services table is-fullwidth is-hoverable">
@@ -104,24 +111,25 @@
             </tr>
           </thead>
           <tfoot>
-            <!-- totals template starts here -->
+            <!-- totals template start -->
             <tr class="totals">
               <td></td>
               <td></td>
               <th><span class="has-text-primary">Total</span></th>
-              <td><span class="total">${ total }</span></td>
+              <th><span class="total">${ total }</span></th>
             </tr>
-            <!-- totals template starts here -->
+            <!-- totals template start -->
           </tfoot>
           <tbody class="service-details">
+            <!-- line-item template start -->
             <tr class="line-item">
-              <!-- line-item template starts here -->
               <td>${ description }</td>
-              <td>${ quantity }</td>
+              <td>${ qty }</td>
               <td>${ rate }</td>
               <td>${ subtotal }</td>
-              <!-- line-item template ends here -->
             </tr>
+            <!-- line-item template end -->
+
             <tr class="line-item">
               <td>Database Migration</td>
               <td>5</td>
@@ -138,17 +146,24 @@
         </table>
 
         <hr>
-        <div class="notes">
-          <h3 class="title is-4 has-text-primary">Notes</h3>
-          <p class="content">
-            ${ notes }
-          </p>
-        </div>
 
-        <a href="./manage.html" class="button send is-primary is-medium">Send</a>
-        <a href="./manage.html" class="button edit is-link is-medium">Edit</a>
-        <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
-      </div>
+        <span class="invoice-footer">
+
+          <!-- invoice footer template start -->
+          <div class="notes">
+            <h3 class="title is-4 has-text-primary">Notes</h3>
+            <p class="content">
+              ${ notes }
+            </p>
+          </div>
+
+          <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
+          <a href="./manage.html" class="button edit is-link is-medium">Edit</a>
+          <a href="./manage.html" class="button send is-primary is-medium">Send</a>
+          <!-- invoice footer template end -->
+
+          </div>
+        </span>
     </section>
     <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
   </body>
