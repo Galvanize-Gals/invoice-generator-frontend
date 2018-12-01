@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="bundle.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Login to Your Account</title>
+    <title>Account Dashboard</title>
   </head>
 
   <body class="is-mobile">
@@ -70,7 +71,7 @@
                   Review
                 </p>
                 <p class="subtitle has-text-grey-light">
-                  View Invoices from
+                  View Invoices from Vendors
                 </p>
               </div>
             </a>
@@ -96,25 +97,4 @@
     </section>
     <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
   </body>
-  <script>
-    const headerJS = () => {
-        const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0) // Get all "navbar-burger" elements
-
-        if (navbarBurgers.length > 0) {
-
-          navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
-
-              const target = el.dataset.target;
-              const $target = document.getElementById(target)
-
-              el.classList.toggle('is-active')
-              $target.classList.toggle('is-active')
-            })
-          })
-        }
-      }
-
-      headerJS();
-  </script>
 </html>

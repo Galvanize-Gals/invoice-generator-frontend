@@ -10,6 +10,10 @@ header.navbar {
     background: transparentize($white, .2);
   }
 
+  .navbar-link {
+    text-transform: capitalize;
+  }
+
   .navbar-item span {
     font-size: 1.5rem;
     font-weight: 600;
@@ -23,6 +27,9 @@ body {
   line-height: 1;
   min-height: 100vh;
 
+  .section {
+    border-radius: 6px;
+  }
 
   > .container {
 
@@ -40,10 +47,6 @@ body {
         width: 60%;
       }
     }
-  }
-
-  .title {
-    font-weight: 300;
   }
 }
 
@@ -82,6 +85,21 @@ body {
   hr { margin-bottom: .5rem; }
 }
 
+.invoice {
+
+  .subtitle {
+    margin-bottom: 0;
+  }
+
+  p {
+    line-height: 1.5rem;
+  }
+
+  .billing-details {
+    margin-top: 1rem;
+  }
+}
+
 .invoice-list {
   margin-bottom: 2rem;
 
@@ -89,9 +107,12 @@ body {
     text-align: center;
   }
 
-
   li {
     align-items: center;
+
+    div {
+      text-transform: capitalize;
+    }
 
     &:hover {
       background-color: $white-ter;

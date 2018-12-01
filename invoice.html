@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="bundle.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Preview Invoice</title>
+  </head>
+
+  <body class="is-mobile">
+
+    <header class="navbar" role="navigation" aria-label="main navigation">
+      <!-- start of header template -->
+      <nav class="container">
+        <div class="navbar-brand">
+
+          <!-- URL only goes to dashboard if logged in! -->
+          <a class="navbar-item" href="./dashboard.html">
+            <span class="mdi mdi-library mdi-24px has-text-link"> InvoiceCreator</span>
+          </a>
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarItems" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  Welcome, ${ first_name }!
+                </a>
+
+                <div class="navbar-dropdown">
+                  <a href="./manage.html" class="navbar-item">
+                    Your Invoices
+                  </a>
+                  <a href="./received.html" class="navbar-item">
+                    Received Invoices
+                  </a>
+                </div>
+              </div>
+              <div class="buttons">
+
+                <a href="./index.html" class="button is-light">
+                  Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- end of header template -->
+    </header>
+
+    <section class="menu container row">
+      <div class="column is-two-thirds-desktop is-offset-2-desktop">
+        <h1 class="title is-3 has-text-white">Preview</h1>
+        <a href="./manage.html" class="button send is-primary is-medium">Send</a>
+        <a href="./manage.html" class="button edit is-link is-medium">Edit</a>
+        <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
+      </div>
+    </section>
+    <section class="preview container">
+      <div class="section invoice column is-two-thirds-desktop is-offset-2-desktop box">
+
+        <div class="vendor">
+          <h3 class="subtitle has-text-primary">${ business_name }</h3>
+          <p class="content">
+            ${ first_name } ${ last_name } <br/>
+            <a href="mailto:email@me.com?subject=Invoice%20${ invoice_number }">${ email }</a>
+          </p>
+        </div>
+
+        <div class="billing-details columns">
+          <div class="is-three-fifths-desktop column">
+            <p class="subtitle has-text-primary">
+              Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
+            </p>
+          </div>
+
+          <div class="client column">
+            <p class="has-text-primary content">
+              Bill to:&nbsp;<span class="has-text-grey">${ first_name } ${ last_name }</span> <br/>
+              Email:&nbsp;<span class="has-text-grey">${ email }</span> <br/>
+              Amount:&nbsp;<span class="has-text-black">${ amount }</span>
+            </p>
+          </div>
+        </div>
+        <hr>
+
+        <table class="services table is-fullwidth">
+          <thead>
+            <tr>
+              <th><span class="has-text-primary">Desc.</span></th>
+              <th><span class="has-text-primary">Qty</span></th>
+              <th><span class="has-text-primary">Rate</span></th>
+              <th><span class="has-text-primary">Totals</span></th>
+            </tr>
+          </thead>
+          <tbody class="service-details">
+            <tr class="line-item">
+              <!-- line-item template starts here -->
+              <td>${ description }</td>
+              <td>${ quantity }</td>
+              <td>${ rate }</td>
+              <td>${ subtotal }</td>
+              <!-- line-item template ends here -->
+            </tr>
+            <tr class="line-item">
+              <td>Database Migration</td>
+              <td>5</td>
+              <td>80</td>
+              <td>400</td>
+            </tr>
+            <tr class="line-item">
+              <td>Database Migration</td>
+              <td>1</td>
+              <td>4000</td>
+              <td>4000</td>
+            </tr>
+
+            <tr class="totals">
+              <!-- totals template starts here -->
+              <td></td>
+              <td></td>
+              <th><span class="has-text-primary">Total</span></th>
+              <td><span class="total">${ total }</span></td>
+              <!-- totals template starts here -->
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+        <div class="notes">
+          <h3 class="subtitle has-text-primary">Notes:</h3>
+          <p class="content">
+            ${ notes }
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
+  </body>
+
+</html>
