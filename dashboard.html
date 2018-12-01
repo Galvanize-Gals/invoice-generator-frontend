@@ -10,7 +10,7 @@
     <title>Login to Your Account</title>
   </head>
 
-  <body class="is-mobile main">
+  <body class="is-mobile">
     <header class="navbar" role="navigation" aria-label="main navigation">
       <!-- start of header template -->
       <nav class="container">
@@ -21,14 +21,14 @@
             <span class="mdi mdi-library mdi-24px has-text-link"> InvoiceCreator</span>
           </a>
 
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarItems" class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
 
@@ -94,7 +94,27 @@
         </div>
       </div>
     </section>
-    <footer class="section has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
+    <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
   </body>
+  <script>
+    const headerJS = () => {
+        const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0) // Get all "navbar-burger" elements
 
+        if (navbarBurgers.length > 0) {
+
+          navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+              const target = el.dataset.target;
+              const $target = document.getElementById(target)
+
+              el.classList.toggle('is-active')
+              $target.classList.toggle('is-active')
+            })
+          })
+        }
+      }
+
+      headerJS();
+  </script>
 </html>

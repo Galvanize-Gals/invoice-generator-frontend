@@ -6748,22 +6748,24 @@ label.panel-block {
 
 /* Vars */
 .main header.navbar {
-  background: white; }
+  background: rgba(255, 255, 255, 0.8); }
 
 header.navbar .navbar-item span {
   font-size: 1.5rem;
   font-weight: 600; }
 
 body {
+  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.7)), url("/images/desk.jpg") no-repeat;
+  background-position: right top;
+  background-size: cover auto;
   line-height: 1;
   min-height: 100vh; }
-  body.main {
-    background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.7)), url("/images/desk.jpg");
-    background-size: 0/100% auto; }
-  body .container h1 {
+  body > .container {
+    padding: 1rem; }
+  body > .container h1 {
     margin-top: 4rem; }
   @media screen and (min-width: 1088px) {
-    body .container .options {
+    body > .container .options {
       margin: 0 auto;
       width: 60%; } }
   body .title {
@@ -6803,6 +6805,9 @@ body {
       transition: all 0.3s ease; }
     .invoice-list li:not(:last-child) {
       border-bottom: 1px solid whitesmoke; }
+
+footer {
+  padding: 3rem 1.5rem 6rem; }
 
 /* Utility */
 .card .card-content .mdi {

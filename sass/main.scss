@@ -7,7 +7,7 @@ $transition: all .3s ease;
 header.navbar {
 
   .main & {
-    background: $white;
+    background: transparentize($white, .2);
   }
 
   .navbar-item span {
@@ -17,15 +17,18 @@ header.navbar {
 }
 
 body {
+  background: linear-gradient(transparentize($black, .4), transparentize($black, .3)), url('/images/desk.jpg') no-repeat;
+  background-position: right top;
+  background-size: cover auto;
   line-height: 1;
   min-height: 100vh;
 
-  &.main {
-    background: linear-gradient(transparentize($black, .4), transparentize($black, .3)), url('/images/desk.jpg');
-    background-size: 0/100% auto;
-  }
 
-  .container {
+  > .container {
+
+    &:not(.navbar &) {
+      padding: 1rem;
+    }
 
     h1 {
       margin-top: 4rem;
@@ -99,6 +102,10 @@ body {
       border-bottom: 1px solid $white-ter;
     }
   }
+}
+
+footer {
+  padding: 3rem 1.5rem 6rem;
 }
 
 /* Utility */
