@@ -1,26 +1,124 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 
+/* Vars */
+$transition: all .3s ease;
+
 header.navbar {
+
   .main & {
-    background: transparentize($white, .2);
+    background: $white;
+  }
+
+  .navbar-item span {
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 }
 
 body {
+  line-height: 1;
   min-height: 100vh;
 
   &.main {
-    background: linear-gradient(transparentize($black, .5), transparentize($black, .4)), url('/images/desk.jpg');
-    background-size: cover;
+    background: linear-gradient(transparentize($black, .4), transparentize($black, .3)), url('/images/desk.jpg');
+    background-size: 0/100% auto;
+  }
+
+  .container {
+
+    h1 {
+      margin-top: 4rem;
+    }
+
+    @media screen and (min-width: $desktop) {
+      .options {
+        margin: 0 auto;
+        width: 60%;
+      }
+    }
+  }
+
+  .title {
+    font-weight: 300;
+  }
+}
+
+.card {
+
+  &.box {
+    padding: 0;
+  }
+
+  .card-content {
+
+    .options & {
+      text-align: center;
+    }
   }
 }
 
 .form {
-  background-color: transparentize($white, .1);
+  background-color: $white;
   padding: 2rem;
 
-  .tag {
-    background: transparent;
+  label {
+    font-size: 1.2rem;
+    font-weight: 300;
+
+    input {
+      margin-top: .5rem;
+    }
   }
+  .tag { background: transparent; }
+}
+
+.manage {
+  margin-top: 1rem;
+
+  hr { margin-bottom: .5rem; }
+}
+
+.invoice-list {
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: $desktop) {
+    text-align: center;
+  }
+
+
+  li {
+    align-items: center;
+
+    &:hover {
+      background-color: $white-ter;
+      transition: $transition;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $white-ter;
+    }
+  }
+}
+
+/* Utility */
+.mdi {
+
+  .card .card-content & {
+    font-size: 6rem;
+  }
+
+  .invoice-list li & {
+    vertical-align: sub;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  transition: $transition;
+  visibility: none;
+}
+
+.notification {
+  transition: $transition;
 }

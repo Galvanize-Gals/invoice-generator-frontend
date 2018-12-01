@@ -6746,17 +6746,75 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+/* Vars */
 .main header.navbar {
-  background: rgba(255, 255, 255, 0.8); }
+  background: white; }
+
+header.navbar .navbar-item span {
+  font-size: 1.5rem;
+  font-weight: 600; }
 
 body {
+  line-height: 1;
   min-height: 100vh; }
   body.main {
-    background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.6)), url("/images/desk.jpg");
-    background-size: cover; }
+    background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.7)), url("/images/desk.jpg");
+    background-size: 0/100% auto; }
+  body .container h1 {
+    margin-top: 4rem; }
+  @media screen and (min-width: 1088px) {
+    body .container .options {
+      margin: 0 auto;
+      width: 60%; } }
+  body .title {
+    font-weight: 300; }
+
+.card.box {
+  padding: 0; }
+
+.options .card .card-content {
+  text-align: center; }
 
 .form {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   padding: 2rem; }
+  .form label {
+    font-size: 1.2rem;
+    font-weight: 300; }
+    .form label input {
+      margin-top: .5rem; }
   .form .tag {
     background: transparent; }
+
+.manage {
+  margin-top: 1rem; }
+  .manage hr {
+    margin-bottom: .5rem; }
+
+.invoice-list {
+  margin-bottom: 2rem; }
+  @media screen and (min-width: 1088px) {
+    .invoice-list {
+      text-align: center; } }
+  .invoice-list li {
+    align-items: center; }
+    .invoice-list li:hover {
+      background-color: whitesmoke;
+      transition: all 0.3s ease; }
+    .invoice-list li:not(:last-child) {
+      border-bottom: 1px solid whitesmoke; }
+
+/* Utility */
+.card .card-content .mdi {
+  font-size: 6rem; }
+
+.invoice-list li .mdi {
+  vertical-align: sub; }
+
+.hidden {
+  opacity: 0;
+  transition: all 0.3s ease;
+  visibility: none; }
+
+.notification {
+  transition: all 0.3s ease; }
