@@ -23,8 +23,8 @@ const create = (invoice) => axios.post(url, invoice, attachHeader())
 const read = () => axios.get(url, attachHeader())
 const readOne = (id) => axios.get(`${url}/${invoiceId}`, attachHeader())
 
-const edit = (id, invoice) => axios.put(`${url}/invoices/${id}`, invoice, attachHeader())
-const remove = (id) => axios.delete(`${url}/invoices/${id}`, attachHeader())
+const edit = (id, invoice) => axios.put(`${url}/${id}`, invoice, attachHeader())
+const remove = (id) => axios.delete(`${url}/${id}`, attachHeader())
 
 module.exports = {
   login,
