@@ -6806,11 +6806,11 @@ body {
   .invoice .title {
     margin-bottom: .5rem; }
   .invoice .table td:nth-child(1) {
-    width: 60%; }
+    width: 50%; }
   .invoice .table td:nth-child(2) {
     width: 10%; }
   .invoice .table td:nth-child(3) {
-    width: 10%; }
+    width: 15%; }
   .invoice .table td:nth-child(4) {
     width: 20%; }
 

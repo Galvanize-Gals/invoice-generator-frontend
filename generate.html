@@ -3,13 +3,167 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Generate Invoice</title>
+    <script defer src="bundle.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Create an Invoice</title>
   </head>
 
-  <body>
+  <body class="is-mobile">
 
+    <header class="navbar" role="navigation" aria-label="main navigation">
+      <!-- start of header template -->
+      <nav class="container">
+        <div class="navbar-brand">
+
+          <!-- URL only goes to dashboard if logged in! -->
+          <a class="navbar-item" href="./dashboard.html">
+            <span class="mdi mdi-library mdi-24px has-text-link"> InvoiceCreator</span>
+          </a>
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarItems" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  Welcome, ${ first_name }!
+                </a>
+
+                <div class="navbar-dropdown">
+                  <a href="./manage.html" class="navbar-item">
+                    Your Invoices
+                  </a>
+                  <a href="./received.html" class="navbar-item">
+                    Received Invoices
+                  </a>
+                </div>
+              </div>
+              <div class="buttons">
+
+                <a href="./index.html" class="button is-light">
+                  Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- end of header template -->
+    </header>
+
+    <section class="container">
+      <div class="column is-two-thirds-desktop is-offset-2-desktop">
+        <h1 class="title is-1 has-text-white">Create an Invoice</h1>
+      </div>
+    </section>
+
+    <section class="preview container">
+
+      <form id="form" class="section invoice column is-two-thirds-desktop is-offset-2-desktop box">
+
+        <h3 class="title is-4 has-text-primary">Billing Details</h3>
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="control" for="company">
+                <input id="company" class="input" type="text" placeholder="Company/Organization" validate>
+              </label>
+            </div>
+            <div class="field">
+              <label class="control" for="first_name">
+                <input id="first_name" class="input" type="text" placeholder="First Name" validate required>
+              </label>
+            </div>
+            <div class="field">
+              <label class="control" for="last_name">
+                <input id="last_name" class="input" type="text" placeholder="Last Name" validate required>
+              </label>
+            </div>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="control" for="email">
+                <input id="email" class="input" type="email" placeholder="email@address.com" validate required>
+              </label>
+            </div>
+            <div class="field">
+              <label class="control" for="due-date">
+                <input id="due-date" class="input" type="date" placeholder="email@address.com" validate required>
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <table class="services table is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th><span class="has-text-primary">Desc.</span></th>
+              <th><span class="has-text-primary">Qty</span></th>
+              <th><span class="has-text-primary">Rate</span></th>
+              <th><span class="has-text-primary">Totals</span></th>
+              <th><span class="has-text-primary">Add</span></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <!-- totals template start -->
+            <tr class="totals">
+              <td></td>
+              <td></td>
+              <th><span class="has-text-primary">Total</span></th>
+              <th><span class="total">${ total }</span></th>
+              <td></td>
+            </tr>
+            <!-- totals template start -->
+          </tfoot>
+          <tbody class="service-details">
+            <tr class="line-item">
+              <td>
+                <div class="field">
+                  <input class="desc input" type="text" placeholder="example: Custom Login Page" required>
+                </div>
+              </td>
+              <td>
+                <div class="field">
+                  <input class="qty input" type="number" placeholder="1" required>
+                </div>
+              </td>
+              <td>
+                <div class="field">
+                  <input class="rate input" type="number" placeholder="45" required>
+                </div>
+              </td>
+              <td>${ subtotal }</td>
+              <td>
+                <div class="line-item button mdi mdi-plus"></div>
+              </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <span class="invoice-footer">
+          <div class="notes">
+            <h3 class="title is-5 has-text-primary">Notes</h3>
+              <textarea class="textarea" placeholder="example: Please pay within 30 days or 90 days or whatever you want to say"></textarea>
+          </div>
+
+          <a href="./invoice.html" class="button edit is-link is-medium">Preview</a>
+          <a href="./manage.html" class="button send is-primary is-medium">Save</a>
+      </form>
+      </span>
+    </section>
+    <footer class="has-text-white-ter has-text-centered">&copy; 2018 G.G. - We're O.G.</footer>
   </body>
 
 </html>
