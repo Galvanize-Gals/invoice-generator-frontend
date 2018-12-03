@@ -21,7 +21,7 @@ const getid = () => axios.get(`${url}/login`, attachHeader())
 
 const create = (invoice) => axios.post(url, invoice, attachHeader())
 const read = () => axios.get(url, attachHeader())
-const readOne = (id) => axios.get(`${url}/${invoiceId}`, attachHeader())
+const readOne = (id) => axios.get(`${url}/${id}`, attachHeader())
 
 const edit = (id, invoice) => axios.put(`${url}/${id}`, invoice, attachHeader())
 const remove = (id) => axios.delete(`${url}/${id}`, attachHeader())
