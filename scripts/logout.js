@@ -1,6 +1,5 @@
-const init = document.querySelector('.logout')
-if (leave) {
-  leave.addEventListener('click', (e) => {
+const init = () => {
+  document.querySelector('.logout').addEventListener('click', (e) => {
     e.preventDefault()
     localStorage.removeItem('token')
     localStorage.removeItem('id')
