@@ -74,17 +74,17 @@
         <h3 class="title is-4 has-text-primary">Billing Details</h3>
         <div class="columns">
           <div class="column">
-            <div class="field">
+            <div class="field"> Company:
               <label class="control" for="company">
                 <input id="company" class="input" type="text" placeholder="Company/Organization" validate>
               </label>
             </div>
-            <div class="field">
+            <div class="field"> First Name:
               <label class="control" for="first_name">
                 <input id="first_name" class="input" type="text" placeholder="First Name" validate required>
               </label>
             </div>
-            <div class="field">
+            <div class="field"> Last Name:
               <label class="control" for="last_name">
                 <input id="last_name" class="input" type="text" placeholder="Last Name" validate required>
               </label>
@@ -92,13 +92,18 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="control" for="email">
+              <label class="control" for="invoiceNumber"> Invoice Number:
+                <input id="invoiceNumber" class="input" type="number" placeholder="Invoice Number" validate>
+              </label>
+            </div>
+            <div class="field">
+              <label class="control" for="email"> Email:
                 <input id="email" class="input" type="email" placeholder="email@address.com" validate required>
               </label>
             </div>
             <div class="field">
-              <label class="control" for="due-date">
-                <input id="due-date" class="input" type="date" placeholder="email@address.com" validate required>
+              <label class="control" for="dueDate"> Due Date:
+                <input id="dueDate" class="input" type="date" validate required>
               </label>
             </div>
           </div>
