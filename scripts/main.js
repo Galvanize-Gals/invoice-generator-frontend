@@ -1,19 +1,11 @@
-const headerJS = () => {
-  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0) // Get all "navbar-burger" elements
+require('./header').init()
+// require('./logout').init()
+const path = window.location.pathname
 
-  if (navbarBurgers.length > 0) {
-
-    navbarBurgers.forEach(el => {
-      el.addEventListener('click', () => {
-
-        const target = el.dataset.target;
-        const $target = document.getElementById(target)
-
-        el.classList.toggle('is-active')
-        $target.classList.toggle('is-active')
-      })
-    })
-  }
+const initialize = {
+  '/': require('./login').init,
+  '/index.html': require('./login').init
 }
 
-headerJS()
+if (initialize.hasOwnProperty(path)) initialize[path]()
+else console.error(`${path} can't initialize`)

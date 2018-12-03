@@ -1,5 +1,6 @@
 const axios = require('axios')
-const url = 'http://localhost:3000/invoices'
+const base = 'http://localhost:3000'
+const url = `${base}/invoices`
 
 const attachHeader = () => {
   let bearer = ''
@@ -15,9 +16,9 @@ const attachHeader = () => {
   }
 }
 
-const login = (credentials) => axios.post(`${url}/login`, credentials)
-const signup = (credentials) => axios.post(`${url}/signup`, credentials)
-const getid = () => axios.get(`${url}/login`, attachHeader())
+const login = (credentials) => axios.post(`${base}/login`, credentials)
+const signup = (credentials) => axios.post(`${base}/signup`, credentials)
+const getid = () => axios.get(`${base}/login`, attachHeader())
 
 const create = (invoice) => axios.post(url, invoice, attachHeader())
 const read = () => axios.get(url, attachHeader())
