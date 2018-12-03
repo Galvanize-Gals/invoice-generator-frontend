@@ -8,11 +8,13 @@
     <script defer src="bundle.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Account Sign-up</title>
+    <title>Account Login</title>
   </head>
 
   <body class="is-mobile">
+
     <header class="navbar" role="navigation" aria-label="main navigation">
+
       <!-- start of header template -->
       <nav class="container">
         <div class="navbar-brand">
@@ -42,28 +44,14 @@
           </div>
         </div>
       </nav>
-      <!-- end of header template -->
+      <!-- start of header template -->
+
     </header>
-    <div class="signup hero is-medium">
+    <div class="login hero is-medium">
       <section class="hero-body column is-one-third-desktop is-offset-4-desktop">
 
         <!-- start of form template -->
         <form id="form" class="form box">
-          <span class="columns">
-            <label class="label column is-half" for="first_name">First Name:
-              <input class="input" id="first_name" type="text" placeholder="First Name" required validate>
-            </label>
-            <label class="label column is-half" for="last_name">Last Name:
-              <input class="input" id="last_name" type="text" placeholder="Last Name" required validate>
-            </label>
-          </span>
-
-          <span class="columns">
-            <label class="label column is-full" for="company">Company/Organization:
-              <input class="input" id="company" type="text" placeholder="Acme Inc." validate>
-            </label>
-          </span>
-
           <span class="columns">
             <label class="label column is-full" for="email">Email:
               <input class="input" id="email" type="email" placeholder="email@address.com" required validate>
@@ -75,11 +63,11 @@
               <input class="input" id="password" type="password" placeholder="******" required>
             </label>
           </span>
-          <span class="column has-text-centered">
-            <input class="button is-primary" type="submit" value="Create an Account">
-            <a class="tag has-text-link" href="./login.html">Already have an account?</a>
+          <span class="column">
+            <input class="button is-primary" type="submit" value="Log-in">
+            <a class="tag has-text-link" href="./index.html">Create an Account</a>
           </span>
-          <p class="notification has-text-danger">Email account already in use!</p>
+          <p class="notification has-text-danger">Password does not match!</p>
         </form>
         <!-- end of form template -->
 
