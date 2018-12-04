@@ -134,7 +134,9 @@ footer { padding: 3rem 1.5rem 6rem; }
 }
 
 .hidden {
+  height: 0;
   opacity: 0;
+  padding: 0;
   transition: $transition;
   visibility: none;
 }
