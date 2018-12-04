@@ -8,7 +8,8 @@ responsiveHeader()
 const initialize = {
   '/': require('./login').init,
   '/index.html': require('./login').init,
-  '/signup.html': require('./signup').init
+  '/signup.html': require('./signup').init,
+  '/generate.html': require('./generate').init
 }
 
 const logout = document.querySelector('#logout')

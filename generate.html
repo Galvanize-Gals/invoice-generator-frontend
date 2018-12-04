@@ -29,35 +29,17 @@
 
         <h3 class="title is-4 has-text-primary">Billing Details</h3>
         <div class="columns">
-          <div class="column">
-            <div class="field"> Company:
-              <label class="control" for="company">
-                <input id="company" class="input" type="text" placeholder="Company/Organization" validate>
-              </label>
-            </div>
-            <div class="field"> First Name:
-              <label class="control" for="first_name">
-                <input id="first_name" class="input" type="text" placeholder="First Name" validate required>
-              </label>
-            </div>
-            <div class="field"> Last Name:
-              <label class="control" for="last_name">
-                <input id="last_name" class="input" type="text" placeholder="Last Name" validate required>
-              </label>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
+            <div class="field column">
               <label class="control" for="invoiceNumber"> Invoice Number:
                 <input id="invoiceNumber" class="input" type="number" placeholder="Invoice Number" validate>
               </label>
             </div>
-            <div class="field">
+            <div class="field is-two-fifths column">
               <label class="control" for="email"> Email:
                 <input id="email" class="input" type="email" placeholder="email@address.com" validate required>
               </label>
             </div>
-            <div class="field">
+            <div class="field column">
               <label class="control" for="dueDate"> Due Date:
                 <input id="dueDate" class="input" type="date" validate required>
               </label>
@@ -106,7 +88,7 @@
               </td>
               <td>${ subtotal }</td>
               <td>
-                <div class="line-item button mdi mdi-plus"></div>
+                <div class="add-item button mdi mdi-plus"></div>
               </td>
             </tr>
         </table>
@@ -118,9 +100,7 @@
             <h3 class="title is-5 has-text-primary">Notes</h3>
               <textarea class="textarea" placeholder="example: Please pay within 30 days or 90 days or whatever you want to say"></textarea>
           </div>
-
-          <a href="./invoice.html" class="button edit is-link is-medium">Preview</a>
-          <a href="./manage.html" class="button send is-primary is-medium">Save</a>
+          <a href="./invoice.html" class="button send is-primary is-medium">Save</a>
       </form>
       </span>
     </section>
