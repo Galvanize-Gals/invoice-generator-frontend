@@ -15,17 +15,20 @@ const attachHeader = () => {
     }
   }
 }
-
+//accounts
 const login = (credentials) => axios.post(`${base}/login`, credentials)
 const signup = (credentials) => axios.post(`${base}/signup`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
 
+//invoices
 const create = (invoice) => axios.post(url, invoice, attachHeader())
 const read = () => axios.get(url, attachHeader())
 const readOne = (id) => axios.get(`${url}/${id}`, attachHeader())
-
 const edit = (id, invoice) => axios.put(`${url}/${id}`, invoice, attachHeader())
 const remove = (id) => axios.delete(`${url}/${id}`, attachHeader())
+
+//line items
+const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/line_items`, {items: lineItems}, attachHeader())
 
 module.exports = {
   login,
@@ -35,5 +38,6 @@ module.exports = {
   read,
   readOne,
   edit,
-  remove
+  remove,
+  createLineItems
 }

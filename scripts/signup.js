@@ -22,6 +22,9 @@ function init() {
     }
     
     signup(newUser)
+    .then ( () => {
+      window.location = `/index.html`
+    })
 
   })
 
