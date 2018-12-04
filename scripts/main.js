@@ -6,12 +6,17 @@ const path = window.location.pathname
 
 const initialize = {
   '/': require('./login').init,
-  '/index.html': require('./login').init,
-  '/dashboard.html': require('./logout').init,
-  '/generate.html': require('./logout').init,
-  '/invoice.html': require('./logout').init,
-  '/manage.html': require('./logout').init,
-  '/received.html': require('./logout').init
+  '/index.html': require('./login').init
+}
+
+const logout = document.querySelector('#logout')
+if (logout) {
+  logout.addEventListener('click', (e) => {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    window.location = '/index.html'
+  })
 }
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
