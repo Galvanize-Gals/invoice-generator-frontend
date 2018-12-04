@@ -1,4 +1,4 @@
-const init  = () => {
+const responsiveHeader  = () => {
   const nav = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
 
   if (nav.length > 0) {
@@ -16,4 +16,4 @@ const init  = () => {
   }
 }
 
-module.exports = { init }
+module.exports = { responsiveHeader }
