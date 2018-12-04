@@ -21,7 +21,6 @@ function init() {
       'password': password.value 
     }
     
-    console.log(newUser)
     signup(newUser)
 
   })
