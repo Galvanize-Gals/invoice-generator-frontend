@@ -62,9 +62,6 @@ const item = () => {
         </div>
       </td>
       <td>0.00</td>
-      <td>
-        <div class="button mdi mdi-plus"></div>
-      </td>
     </tr>
   `
 }

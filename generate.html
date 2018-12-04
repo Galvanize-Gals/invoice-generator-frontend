@@ -1,100 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="bundle.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Create an Invoice</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="bundle.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Create an Invoice</title>
+</head>
 
-  <body class="is-mobile">
+<body class="is-mobile">
 
-    <header class="navbar" role="navigation" aria-label="main navigation">
+  <header class="navbar" role="navigation" aria-label="main navigation">
 
-    </header>
+  </header>
 
-    <section class="container">
-      <div class="column is-two-thirds-desktop is-offset-2-desktop">
-        <h1 class="title is-1 has-text-white">Create an Invoice</h1>
-      </div>
-    </section>
+  <section class="container">
+    <div class="column is-two-thirds-desktop is-offset-2-desktop">
+      <h1 class="title is-1 has-text-white">Create an Invoice</h1>
+    </div>
+  </section>
 
-    <section class="preview container">
+  <section class="preview container">
 
-      <form id="form" class="section invoice column is-two-thirds-desktop is-offset-2-desktop box">
+    <form id="form" class="section invoice column is-two-thirds-desktop is-offset-2-desktop box generateForm">
+      <h3 class="title is-4 has-text-primary">Billing Details</h3>
 
-        <h3 class="title is-4 has-text-primary">Billing Details</h3>
-        <div class="columns">
-            <div class="field column">
-              <label class="control" for="invoiceNumber"> Invoice Number:
-                <input id="invoiceNumber" class="input" type="number" placeholder="Invoice Number" validate>
-              </label>
-            </div>
-            <div class="field is-two-fifths column">
-              <label class="control" for="email"> Email:
-                <input id="email" class="input" type="email" placeholder="email@address.com" validate required>
-              </label>
-            </div>
-            <div class="field column">
-              <label class="control" for="dueDate"> Due Date:
-                <input id="dueDate" class="input" type="date" validate required>
-              </label>
-            </div>
+      <div class="columns">
+          <div class="column field">
+            <label class="control" for="invoiceNumber"> Invoice Number:
+              <input id="invoiceNumber" class="input" type="number" placeholder="Invoice Number" validate value="111">
+            </label>
           </div>
-        </div>
-        <hr>
+          <div class="column field">
+            <label class="control" for="email"> Email:
+              <input id="email" class="input" type="email" placeholder="email@address.com" validate required value="test@me.com">
+            </label>
+          </div>
+          <div class="column field">
+            <label class="control" for="dueDate"> Due Date:
+              <input id="dueDate" class="input" type="date" validate required value="2001-01-01">
+            </label>
+          </div>
+      </div>
 
-        <table class="services table is-fullwidth is-hoverable">
-          <thead>
-            <tr>
-              <th><span class="has-text-primary">Desc.</span></th>
-              <th><span class="has-text-primary">Qty</span></th>
-              <th><span class="has-text-primary">Rate</span></th>
-              <th><span class="has-text-primary">Totals</span></th>
-              <th><span class="has-text-primary">Add</span></th>
-            </tr>
-          </thead>
-          <tfoot>
-            <!-- totals template start -->
-            <tr class="totals">
-              <td></td>
-              <td></td>
-              <th><span class="has-text-primary">Total</span></th>
-              <th><span class="total">${ total }</span></th>
-              <td></td>
-            </tr>
-            <!-- totals template start -->
-          </tfoot>
-          <div class="add-item button mdi mdi-plus"></div>
-          <tbody class="service-details">
-            <tr class="line-item">
-              <td>
-                <div class="field">
-                  <input class="desc input" type="text" placeholder="example: Custom Login Page" required>
-                </div>
-              </td>
-              <td>
-                <div class="field">
-                  <input class="qty input" type="number" placeholder="1" required>
-                </div>
-              </td>
-              <td>
-                <div class="field">
-                  <input class="rate input" type="number" placeholder="45" required>
-                </div>
-              </td>
-              <td>${ subtotal }</td>
-              <td>
-              </td>
-            </tr>
-        </table>
+      <hr>
 
-        <hr>
+      <table class="services table is-fullwidth is-hoverable">
+        <thead>
+          <tr>
+            <th><span class="has-text-primary">Desc.</span></th>
+            <th><span class="has-text-primary">Qty</span></th>
+            <th><span class="has-text-primary">Rate</span></th>
+            <th><span class="has-text-primary">Totals</span></th>
+          </tr>
+        </thead>
+        <div class="add-item button mdi mdi-plus">Add item</div>
+        <tfoot>
+          <tr class="totals">
+            <td></td>
+            <td></td>
+            <th><span class="has-text-primary">Total</span></th>
+            <th><span class="total">${ total }</span></th>
+          </tr>
+        </tfoot>
+        <tbody class="service-details">
+          <tr class="line-item">
+            <td>
+              <div class="field">
+                <input class="desc input" type="text" placeholder="example: Custom Login Page" required value="AAA">
+              </div>
+            </td>
+            <td>
+              <div class="field">
+                <input class="qty input" type="number" placeholder="1" required value="1">
+              </div>
+            </td>
+            <td>
+              <div class="field">
+                <input class="rate input" type="number" placeholder="45" required value="70">
+              </div>
+            </td>
+            <td>${ subtotal }</td>
+          </tr>
+      </table>
 
+      <hr>
         <span class="invoice-footer">
           <div class="notes">
             <h3 class="title is-5 has-text-primary">Notes</h3>
