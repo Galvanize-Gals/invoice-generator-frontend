@@ -1,11 +1,12 @@
-const lineItem = () => {
-  const add = document.querySelectorAll('.add-item')
-  console.log(add)
+const templates = require('./templates')
 
-  add.forEach(a => {
-    a.addEventListener('click', (e) => {
-      console.log('test')
-    })
+const lineItem = () => {
+  const add = document.querySelector('.add-item')
+  const service = document.querySelector('tbody')
+
+  add.addEventListener('click', (e) => {
+    let i = templates.item()
+    console.log(i);
   })
 }
 

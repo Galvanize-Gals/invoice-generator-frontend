@@ -43,4 +43,30 @@ const header = () => {
   `
 }
 
-module.exports = { header }
+const item = () => {
+  return `
+    <tr class="line-item">
+      <td>
+        <div class="field">
+          <input class="desc input" type="text" placeholder="example: Custom Login Page" required>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <input class="qty input" type="number" placeholder="1" required>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <input class="rate input" type="number" placeholder="45" required>
+        </div>
+      </td>
+      <td>0.00</td>
+      <td>
+        <div class="button mdi mdi-plus"></div>
+      </td>
+    </tr>
+  `
+}
+
+module.exports = { header, item }
