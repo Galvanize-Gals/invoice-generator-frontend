@@ -7,7 +7,7 @@ function init() {
   const addButton = document.querySelector('.add-item')
   const form = document.querySelector('.generateForm')
 
-  addButton.addEventListener('click', (e) =>  tbody.innerHTML += item())
+  addButton.addEventListener('click', () =>  tbody.innerHTML += item())
 
   form.addEventListener('submit', (event) => {
     event.preventDefault()
