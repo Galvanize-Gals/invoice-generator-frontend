@@ -3,7 +3,7 @@ const path = window.location.pathname
 const welcome = (id) => {
   return `
     <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link"> Welcome, ${ id }! </a>
+      <a class="navbar-link"> Welcome, User# ${ id }! </a>
       <div class="navbar-dropdown">
         <a href="./manage.html" class="navbar-item">Your Invoices</a>
         <a href="./received.html" class="navbar-item">Received Invoices</a>

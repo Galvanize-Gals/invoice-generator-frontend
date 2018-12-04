@@ -1,4 +1,5 @@
 const { login, getid } = require('./requests')
+const { errorMessage } = require('./utils')
 
 const init = () => {
   document.querySelector('#form').addEventListener('submit', (e) => {
@@ -15,7 +16,7 @@ const init = () => {
       // remove these lines tomorrow
       .then(getid)
       .then(response => localStorage.setItem('id', response.data.id) )
-      .catch(error => console.log(error))
+      .catch(() => errorMessage('.notification', 'Password does not match!', 2000))
   })
 }
 

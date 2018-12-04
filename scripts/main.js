@@ -15,5 +15,15 @@ const initialize = {
   '/received.html': require('./logout').init
 }
 
+const logout = document.querySelector('#logout')
+if (logout) {
+  logout.addEventListener('click', (e) => {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    window.location = '/index.html'
+  })
+}
+
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)
