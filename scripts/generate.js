@@ -29,11 +29,6 @@ function init() {
     const rates = Array.from(document.querySelectorAll('.rate'))
       .map(rate => rate.value)
 
-    console.log(descriptions);
-    console.log(quantities);
-    console.log(rates);
-
-
     create(newInvoice)
       .then((response) => {
 
