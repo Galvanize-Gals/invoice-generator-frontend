@@ -43,4 +43,21 @@ const header = () => {
   `
 }
 
-module.exports = { header }
+const invoiceLine = ({ id, invoice_number, vendor_id }) =>{
+  return `<li class="columns readAll" data-id=${id}>
+            <div class="column">
+              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+            </div>
+            <div class="column is-two-fifths-desktop">
+              <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ vendor_id }
+            </div>
+            <div class="column">
+              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> 0
+            </div>
+            <span class="column">
+              <a href="./invoice.html" class="button is-link">View Details</a>
+            </span>
+          </li>`
+}
+
+module.exports = { header, invoiceLine }
