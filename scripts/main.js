@@ -8,7 +8,8 @@ const initialize = {
   '/': require('./login').init,
   '/index.html': require('./login').init,
   '/signup.html': require('./signup').init,
-  '/generate.html': require('./generate').init
+  '/generate.html': require('./generate').init,
+  '/received.html': require('./received').init
 }
 
 const logout = document.querySelector('#logout')
