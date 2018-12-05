@@ -43,7 +43,7 @@ const header = () => {
   `
 }
 
-const invoiceLine = ({ id, invoice_number, vendor_id }) =>{
+const invoiceLine = ({ id, invoice_number, vendor_id, total }) =>{
   return `<li class="columns readAll" data-id=${id}>
             <div class="column">
               <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
@@ -52,7 +52,7 @@ const invoiceLine = ({ id, invoice_number, vendor_id }) =>{
               <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ vendor_id }
             </div>
             <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> 0
+              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total }
             </div>
             <span class="column">
               <a href="./invoice.html" class="button is-link">View Details</a>
