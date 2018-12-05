@@ -24,3 +24,4 @@ if (logout) {
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)
+

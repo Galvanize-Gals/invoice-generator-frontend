@@ -1,6 +1,7 @@
 const axios = require('axios')
 const base = 'http://localhost:3000'
-const url = `${base}/invoices`
+const userId = localStorage.getItem('id')
+const url = `${base}/users/${userId}/invoices`
 
 const attachHeader = () => {
   let bearer = ''
@@ -21,23 +22,35 @@ const signup = (credentials) => axios.post(`${base}/signup`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
 
 //invoices
-const create = (invoice) => axios.post(url, invoice, attachHeader())
-const read = () => axios.get(url, attachHeader())
-const readOne = (id) => axios.get(`${url}/${id}`, attachHeader())
-const edit = (id, invoice) => axios.put(`${url}/${id}`, invoice, attachHeader())
-const remove = (id) => axios.delete(`${url}/${id}`, attachHeader())
+const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
+const getAllClientInvoices = () => axios.get(`${url}/client`, attachHeader())
+const getOneVendorInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/vendor/`, attachHeader())
+const getOneClientInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/client`, attachHeader())
+const createInvoice = (invoice) => axios.post(`${url}/vendor`, invoice, attachHeader())
+const updateInvoice = (invoiceId, invoice) => axios.put(`${url}/${invoiceId}/vendor/`, invoice, attachHeader())
+const removeInvoice = (invoiceId) => axios.delete(`${url}/${invoiceId}/vendor`, attachHeader())
 
-//line items
-const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/line_items`, {items: lineItems}, attachHeader())
+const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, lineItems, attachHeader())
+
+// getAllVendorInvoices localhost:3000/users/:userId/invoices/vendor/
+// getAllClientInvoices localhost:3000/users/:userId/invoices/client/
+// getOneVendorInvoice(w. lineitems) localhost:3000/users/:userId/invoices/:invoiceId/vendor
+// getOneClientInvoice(w. lineitems) localhost:3000/users/:userId/invoices/:invoiceId/client
+// createInvoice localhost:3000/users/:userId/invoices/vendor/
+// updateInvoice localhost:3000/users/:userId/invoices/:invoiceId/vendor
+// removeInvoicelocalhost:3000/users/:userId/invoices/:invoiceId/vendor
+// createLineItem localhost:3000/users/:userId/invoices/:invoiceId/vendor/line_items
 
 module.exports = {
   login,
-  getid,
   signup,
-  create,
-  read,
-  readOne,
-  edit,
-  remove,
+  getid,
+  createInvoice,
+  getAllVendorInvoices,
+  getAllClientInvoices,
+  getOneVendorInvoices,
+  getOneClientInvoices,
+  updateInvoice,
+  removeInvoice,
   createLineItems
 }
