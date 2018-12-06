@@ -4,7 +4,6 @@ const { getOneUser } = require('./requests')
 
 getOneUser(localStorage.getItem('id'))
 .then( (response) => {
-  console.log(response.data.data[0].first_name)
   userName = response.data.data[0].first_name
   document.querySelector('header.navbar').innerHTML = header(userName)
 })
