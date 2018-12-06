@@ -6,7 +6,7 @@ function init(){
     getAllClientInvoices()
         .then((res) => {
             console.log(res.data.data)
-            const invoiceItem = res.data.data.map(a => invoiceLine(a) )
+            const invoiceItem = res.data.data.map(a => invoiceLine(a))
             invoiceList.innerHTML = ''
             invoiceList.innerHTML = invoiceItem.join('\n')
         })

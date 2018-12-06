@@ -45,19 +45,119 @@ const header = () => {
 
 const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
   return `<li class="columns readAll" data-id=${id}>
-            <div class="column">
-              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
-            </div>
-            <div class="column is-two-fifths-desktop">
-              <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
-            </div>
-            <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total }
-            </div>
-            <span class="column">
-              <a href="./invoice.html" class="button is-link">View Details</a>
-            </span>
-          </li>`
+    <div class="column">
+      <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+    </div>
+    <div class="column is-two-fifths-desktop">
+      <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
+    </div>
+    <div class="column">
+      <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total }
+    </div>
+    <span class="column">
+      <a href="./preview.html?id=${ id }" class="button is-link">View</a>
+    </span>
+  </li>`
 }
 
-module.exports = { header, invoiceLine }
+const preview = ({ id, company, first_name, last_name, email, invoice_number, updated_at, due_date, notes }, lineItems) => {
+  return `
+      <div class="section invoice column is-two-thirds-desktop is-offset-2-desktop box" data-id=${ id }>
+        <span class="invoice-header">
+        <div class="vendor has-text-grey-light">
+          <!--
+            <p class="content">
+              Please remit payments to: <br/>
+              ${ company !== null ? company : '' } <br/>
+              ${ first_name} ${ last_name } <br />
+              <a class="has-text-grey-light" href="mailto:${email}?subject=Invoice%20${invoice_number}">${email}</a> -->
+            </p>
+          </div>
+
+          <div class="billing-details columns">
+            <div class="is-three-fifths-desktop client column">
+              <h3 class="title is-5 has-text-primary">
+                Bill To
+              </h3>
+              <p class="has-text-grey content">
+                ${ company !== null ? company : '' } <br/>
+                ${ first_name } ${last_name } <br />
+                ${ email }
+              </p>
+            </div>
+            <div class="column">
+              <h3 class="title is-5 has-text-primary">
+                Invoice&nbsp;<span class="has-text-grey-light"> #${ invoice_number }</span>
+              </h3>
+              <p class="has-text-primary content">
+                Issued:&nbsp;<span class="has-text-grey">${ updated_at.slice(0,10) }</span> <br />
+                Due:&nbsp;<span class="has-text-grey">${ due_date.slice(0,10) }</span> <br/>
+              </p>
+            </div>
+          </div>
+          <!-- billing header template end -->
+        </span>
+
+        <hr>
+
+        <table class="services table is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th><span class="has-text-primary">Desc.</span></th>
+              <th><span class="has-text-primary">Qty</span></th>
+              <th><span class="has-text-primary">Rate/Hours</span></th>
+              <th><span class="has-text-primary">Totals</span></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <!-- totals template start -->
+            <tr class="totals">
+              <td></td>
+              <td></td>
+              <th><span class="has-text-primary">Total</span></th>
+              <th><span class="total">
+                $${ lineItems.reduce((acc, ele) => acc + ele.subtotal, 0) }
+              </span></th>
+            </tr>
+            <!-- totals template start -->
+          </tfoot>
+          <tbody class="service-details">
+            ${ renderLineItems(id, lineItems) }
+          </tbody>
+        </table>
+
+        <hr>
+
+        <span class="invoice-footer">
+
+          <!-- invoice footer template start -->
+          <div class="notes">
+            <h3 class="title is-5 has-text-primary">Notes</h3>
+            <p class="content">
+              ${ notes }
+            </p>
+          </div>
+
+          <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
+          <a href="./generate.html" class="button edit is-link is-medium">Edit</a>
+          <a href="./manage.html" class="button send is-primary is-medium">Send</a>
+          <!-- invoice footer template end -->
+
+        </span>
+      </div>`
+}
+
+const renderLineItems = (id, lineItems) => lineItems.map(item => renderLineItem(id, item)).join('\n')
+
+const renderLineItem = (id, {description, quantity, rate, subtotal}) => {
+  return `
+    <tr class="line-item" data-inv="${ id }">
+      <td>${ description }</td>
+      <td>${ quantity }</td>
+      <td>${ rate }</td>
+      <td>$${ subtotal }</td>
+    </tr>
+  `
+}
+
+module.exports = { header, invoiceLine, preview }
