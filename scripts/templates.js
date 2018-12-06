@@ -176,7 +176,7 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <a href="./invoice.html" class="button is-link">View Details</a>
             </span>
             <span>
-            <a class="button is-dark outstanding" data-id=${id}>Mark as Paid</a>
+            <a class="button is-dark outstanding_invoice" data-id=${id}>Mark as Paid</a>
             </span>
           </li>`
   }
@@ -195,7 +195,7 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <a href="./invoice.html" class="button is-link">View Details</a>
             </span>
             <span>
-            <a class="button is-dark paid" data-id=${id}>Mark as Outstanding</a>
+            <a class="button is-dark paid_invoice" data-id=${id}>Mark as Outstanding</a>
             </span>
           </li>`
 
