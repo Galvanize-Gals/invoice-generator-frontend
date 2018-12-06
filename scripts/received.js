@@ -5,6 +5,7 @@ function init(){
     const outstandingInvoiceList = document.querySelector('.outstanding')
     getAllClientInvoices()
         .then((res) => {
+            console.log(res.data.data)
             const invoiceItem = res.data.data.map((a) => {
                 if(a.is_paid === false) { return invoiceLine(a) }
                 else{}

@@ -172,11 +172,14 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
             <div class="column">
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
-            <span class="column">
-              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View Details</a>
+            <span>
+            <a class="button is-dark outstanding_invoice" data-id=${id}>Mark as Paid</a>
             </span>
             <span>
-            <a class="button is-danger is-outlined outstanding_invoice" data-id=${id}>Mark as Paid</a>
+              <a href="./invoice.html" class="button is-link">View Details</a>
+            </span>
+            <span>
+            <a class="button is-danger delete_invoice" data-id=${id}>Delete</a>
             </span>
           </li>`
   }
@@ -191,11 +194,14 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
             <div class="column">
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
-            <span class="column">
-              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View Details</a>
+            <span>
+            <a class="button is-dark paid_invoice" data-id=${id}>Mark as Outstanding</a>
             </span>
             <span>
-            <a class="button is-danger is-outlined paid_invoice" data-id=${id}>Mark as Unpaid</a>
+              <a href="./invoice.html" class="button is-link">View Details</a>
+            </span>
+            <span>
+            <a class="button is-danger delete_invoice" data-id=${id}>Delete</a>
             </span>
           </li>`
 
