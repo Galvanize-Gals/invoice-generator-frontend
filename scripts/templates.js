@@ -5,7 +5,7 @@ const welcome = (id) => {
     <div class="navbar-item has-dropdown is-hoverable">
       <a class="navbar-link"> Welcome, User# ${ id }! </a>
       <div class="navbar-dropdown">
-        <a href="./manage.html" class="navbar-item">Your Invoices</a>
+        <a href="./manage.html" class="navbar-item">Manage Invoices</a>
         <a href="./received.html" class="navbar-item">Received Invoices</a>
       </div>
     </div>`
@@ -61,6 +61,7 @@ const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
 }
 
 const preview = ({ id, company, first_name, last_name, email, invoice_number, updated_at, due_date, notes }, lineItems) => {
+
   return `
       <div class="section invoice column is-two-thirds-desktop is-offset-2-desktop box" data-id=${ id }>
         <span class="invoice-header">
@@ -140,7 +141,7 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
           </div>
 
           <a href="${document.referrer}" class="button send is-link is-medium">Back</a>
-          <a href="#" class="button send is-primary is-medium">Send</a>
+          <a href="#" id="send" class="button is-primary is-medium">Send</a>
           <!-- invoice footer template end -->
 
         </span>
