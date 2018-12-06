@@ -10,6 +10,7 @@ const initialize = {
   '/signup.html': require('./signup').init,
   '/generate.html': require('./generate').init,
   '/received.html': require('./received').init,
+  '/preview.html': require('./preview').init,
   '/manage.html' : require('./manage').init
 }
 
@@ -25,4 +26,3 @@ if (logout) {
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)
-

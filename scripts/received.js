@@ -12,7 +12,7 @@ function init(){
             outstandingInvoiceList.innerHTML = ''
             outstandingInvoiceList.innerHTML = invoiceItem.join('\n')
         })
-    
+
     const paidInvoiceList = document.querySelector('.paid-invoice-list')
     getAllClientInvoices()
         .then((res) => {
