@@ -1,10 +1,10 @@
-const { getAllClientInvoices } = require('./requests')
+const { getAllVendorInvoices } = require('./requests')
 const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
 
 function init() {
     const invoiceList = document.querySelector('.invoice-list')
-    getAllClientInvoices()
+    getAllVendorInvoices()
         .then((res) => {
             const invoiceItem = res.data.data.map(a => vendorInvoiceLine(a))
             invoiceList.innerHTML = ''
