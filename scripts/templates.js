@@ -129,6 +129,7 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
         <hr>
 
         <span class="invoice-footer">
+          <p class="notification hidden has-text-success"></p>
 
           <!-- invoice footer template start -->
           <div class="notes">
@@ -138,7 +139,8 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
             </p>
           </div>
 
-          <a href="./manage.html" class="button send is-primary is-medium">Send</a>
+          <a href="${document.referrer}" class="button send is-link is-medium">Back</a>
+          <a href="#" class="button send is-primary is-medium">Send</a>
           <!-- invoice footer template end -->
 
         </span>

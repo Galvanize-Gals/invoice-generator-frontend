@@ -6829,7 +6829,7 @@ body {
       text-transform: capitalize; }
     .invoice-list li:hover {
       background-color: whitesmoke;
-      transition: all 0.3s ease; }
+      transition: all 0.3s fade-in; }
     .invoice-list li:not(:last-child) {
       border-bottom: 1px solid whitesmoke; }
 
@@ -6838,7 +6838,7 @@ footer {
 
 /* Utility */
 .notification {
-  transition: all 0.3s ease; }
+  transition: all 0.3s fade-in; }
 
 .card .card-content .mdi {
   font-size: 6rem; }
@@ -6850,5 +6850,5 @@ footer {
   height: 0;
   opacity: 0;
   padding: 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s fade-in;
   visibility: none; }

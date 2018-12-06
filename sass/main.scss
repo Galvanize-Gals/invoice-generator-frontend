@@ -2,7 +2,7 @@
 @import "../node_modules/bulma/bulma.sass";
 
 /* Vars */
-$transition: all .3s ease;
+$transition: all .3s fade-in;
 
 header.navbar {
 
@@ -91,7 +91,7 @@ body {
   }
 
   .title { margin-bottom: .5rem; }
-  
+
   .table {
 
     .line-item td {

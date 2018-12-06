@@ -1,5 +1,6 @@
 const { getOneClientInvoice } = require('./requests')
 const { preview } = require('./templates')
+const { notify } = require('./utils')
 
 const init = () => {
   const container = document.querySelector('.preview.container')
@@ -11,8 +12,9 @@ const init = () => {
   .then(response => {
     console.log(response.data.data)
       return container.innerHTML = preview(response.data.data, response.data.lineItems)
-    })
-    .catch(error => error)
+  })
+  .catch(error => error)
+
 }
 
 module.exports = { init }
