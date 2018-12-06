@@ -10,7 +10,8 @@ const initialize = {
   '/signup.html': require('./signup').init,
   '/generate.html': require('./generate').init,
   '/received.html': require('./received').init,
-  '/preview.html': require('./preview').init
+  '/preview.html': require('./preview').init,
+  '/manage.html' : require('./manage').init
 }
 
 const logout = document.querySelector('#logout')
