@@ -3,6 +3,12 @@ const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
 
 function init() {
+    render()
+   
+  
+}
+
+function render() {
     const outstandingInvoiceList = document.querySelector('.outstanding')
     getAllVendorInvoices()
         .then((res) => {
@@ -12,7 +18,9 @@ function init() {
             })
             outstandingInvoiceList.innerHTML = ''
             outstandingInvoiceList.innerHTML = invoiceItem.join('\n')
+            addOutstandingEventListeners()
         })
+       
 
     const paidInvoiceList = document.querySelector('.paid')
     getAllVendorInvoices()
@@ -22,32 +30,38 @@ function init() {
             })
             paidInvoiceList.innerHTML = ''
             paidInvoiceList.innerHTML = invoiceItem.join('\n')
+            addPaidEventListeners()
         })
+      
+}
+
+
 
     const addOutstandingEventListeners = () => {
-        const outstandingArray = document.querySelectorAll('.outstanding')
+        const outstandingArray = document.querySelectorAll('.outstanding_invoice')
         for (ele of outstandingArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                location.reload()
-
+                .then(()=>{
+                    render()
+                })
+               
             })
         }
     }
 
     const addPaidEventListeners = () => {
-        const paidArray = document.querySelectorAll('.paid')
+        const paidArray = document.querySelectorAll('.paid_invoice')
         for (ele of paidArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                location.reload()
-
+                .then(()=>{
+                    render()
+                })
             })
         }
     }
 
-    addOutstandingEventListeners()
-    addPaidEventListeners()
-}
+    
 
 module.exports = { init }
