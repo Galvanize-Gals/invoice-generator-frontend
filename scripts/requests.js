@@ -41,14 +41,14 @@ const getUserByEmail = (email) => axios.get(`${base}/users?email=${email}` )
 //invoices
 const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
 const getAllClientInvoices = () => axios.get(`${url}/client`, attachHeader())
-const getOneVendorInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/vendor/`, attachHeader())
-const getOneClientInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/client`, attachHeader())
+const getOneVendorInvoice = (invoiceId) => axios.get(`${url}/${invoiceId}/vendor/`, attachHeader())
+const getOneClientInvoice = (invoiceId) => axios.get(`${url}/${invoiceId}/client`, attachHeader())
 const createInvoice = (invoice) => axios.post(`${url}/vendor`, invoice, attachHeader())
 const updateInvoice = (invoiceId, invoice) => axios.put(`${url}/${invoiceId}/vendor/`, invoice, attachHeader())
 const removeInvoice = (invoiceId) => axios.delete(`${url}/${invoiceId}/vendor`, attachHeader())
 
 const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, {items: lineItems}, attachHeader())
-const togglePaid = (invoiceId) => axios.put(`${url}/${invoiceId}/vendor`, attachHeader())
+const togglePaid = (invoiceId) => axios.put(`${url}/${invoiceId}/vendor`, {}, attachHeader())
 
 // getAllVendorInvoices localhost:3000/users/:userId/invoices/vendor/
 // getAllClientInvoices localhost:3000/users/:userId/invoices/client/
@@ -67,8 +67,8 @@ module.exports = {
   createInvoice,
   getAllVendorInvoices,
   getAllClientInvoices,
-  getOneVendorInvoices,
-  getOneClientInvoices,
+  getOneVendorInvoice,
+  getOneClientInvoice,
   updateInvoice,
   removeInvoice,
   createLineItems,

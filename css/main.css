@@ -3401,7 +3401,6 @@ a.tag:hover {
   .title.is-2 {
     font-size: 2.5rem; }
   .title.is-3 {
-    margin-top: 2rem;
     font-size: 2rem; }
   .title.is-4 {
     font-size: 1.5rem; }
@@ -6804,8 +6803,12 @@ body {
     line-height: 1rem; }
   .invoice .notes {
     margin-bottom: 2rem; }
+    .invoice .notes .content {
+      text-transform: capitalize; }
   .invoice .title {
     margin-bottom: .5rem; }
+  .invoice .table .line-item td {
+    text-transform: capitalize; }
   .invoice .table td:nth-child(1) {
     width: 50%; }
   .invoice .table td:nth-child(2) {

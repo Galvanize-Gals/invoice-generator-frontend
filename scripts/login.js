@@ -1,5 +1,5 @@
 const { login, getid } = require('./requests')
-const { errorMessage } = require('./utils')
+const { notify } = require('./utils')
 
 const init = () => {
   document.querySelector('#form').addEventListener('submit', (e) => {
@@ -14,8 +14,8 @@ const init = () => {
         window.location = `/dashboard.html`
       })
       .then(getid)
-      .then(response => localStorage.setItem('id', response.data.id) )
-      .catch(() => errorMessage('.notification', 'Password does not match!', 2000))
+      .then(response => localStorage.setItem('id', response.data.id))
+      .catch(error => notify('.notification', 'Password does not match!', 2000))
   })
 }
 
