@@ -8,7 +8,7 @@
     "css-build": "node-sass --omit-source-map-url sass/main.scss css/main.css",
     "css-watch": "npm run css-build -- --watch",
     "build": "browserify scripts/main.js -o bundle.js",
-    "watch": "watchify scripts/main.js -o bundle.js",
+    "watch": "watchify -d scripts/main.js -o bundle.js",
     "dev-server": "live-server .",
     "dev": "run-all \"npm run watch\" \"npm run dev-server\" \"npm run css-watch\""
   },

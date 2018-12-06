@@ -1,5 +1,5 @@
 const axios = require('axios')
-const base = 'http://localhost:3000'
+const base = 'https://invoice-creator-gg.herokuapp.com'
 const userId = localStorage.getItem('id')
 const url = `${base}/users/${userId}/invoices`
 
