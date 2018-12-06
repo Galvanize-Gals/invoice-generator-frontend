@@ -2,7 +2,7 @@ const { getAllClientInvoices } = require('./requests')
 const { invoiceLine } = require('./templates')
 
 function init(){
-    const outstandingInvoiceList = document.querySelector('.outstanding-invoice-list')
+    const outstandingInvoiceList = document.querySelector('.outstanding')
     getAllClientInvoices()
         .then((res) => {
             const invoiceItem = res.data.data.map((a) => {
@@ -13,7 +13,7 @@ function init(){
             outstandingInvoiceList.innerHTML = invoiceItem.join('\n')
         })
 
-    const paidInvoiceList = document.querySelector('.paid-invoice-list')
+    const paidInvoiceList = document.querySelector('.paid')
     getAllClientInvoices()
         .then((res) => {
             console.log(res.data.data)

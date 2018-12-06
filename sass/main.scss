@@ -10,13 +10,7 @@ header.navbar {
     background: transparentize($white, .2);
   }
 
-  .navbar-link {
-    text-transform: capitalize;
-
-    @media screen and (max-width: $tablet) {
-      display: none;
-    }
-  }
+  .navbar-link { text-transform: capitalize; }
 
   .navbar-item span {
     font-size: 1.5rem;
@@ -116,10 +110,13 @@ body {
 .invoice-list {
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $desktop) { text-align: center; }
+  @media screen and (min-width: $desktop) { text-align: left; }
 
   li {
     align-items: center;
+
+
+  .button.is-danger { min-width: 160px; }
 
     div { text-transform: capitalize; }
 
