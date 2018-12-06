@@ -1,6 +1,7 @@
 const axios = require('axios')
 const base = 'http://localhost:3000'
-const url = `${base}/users`
+const userId = localStorage.getItem('id')
+const url = `${base}/users/${userId}/invoices`
 
 const attachHeader = () => {
   let bearer = ''
@@ -22,26 +23,37 @@ const getid = () => axios.get(`${base}/login`, attachHeader())
 const getUserByEmail = (email) => axios.get(url, {email}, attachHeader() )
 
 //invoices
-const create = (userId, invoice) => axios.post(`${url}/${userId}/invoices/vendor`, invoice, attachHeader())
-const readVendorInvoices = (userId) => axios.get(`${url}/${userId}/invoices/vendor`, attachHeader())
-const readClientInvoices = (userId) => axios.get(`${url}/${userId}/invoices/client`, attachHeader())
-const readOne = (userId, invoiceId) => axios.get(`${url}/${userId}/invoices/${invoiceId}`, attachHeader())
-const edit = (userId, invoiceId, invoice) => axios.put(`${url}/${userId}/invoices/${invoiceId}`, invoice, attachHeader())
-const remove = (userId, invoiceId) => axios.delete(`${url}/${userId}/invoices/${invoiceId}`, attachHeader())
+const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
+const getAllClientInvoices = () => axios.get(`${url}/client`, attachHeader())
+const getOneVendorInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/vendor/`, attachHeader())
+const getOneClientInvoices = (invoiceId) => axios.get(`${url}/${invoiceId}/client`, attachHeader())
+const createInvoice = (invoice) => axios.post(`${url}/vendor`, invoice, attachHeader())
+const updateInvoice = (invoiceId, invoice) => axios.put(`${url}/${invoiceId}/vendor/`, invoice, attachHeader())
+const removeInvoice = (invoiceId) => axios.delete(`${url}/${invoiceId}/vendor`, attachHeader())
 
-//line items
-const createLineItems = (userId, invoiceId, lineItems) => axios.post(`${url}/${userId}/invoices/${invoiceId}/vendor/line_items`, {items: lineItems}, attachHeader())
+const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, lineItems, attachHeader())
+const togglePaid = (invoiceId) => axios.put(`${url}/${invoiceId}/vendor`, attachHeader())
+
+// getAllVendorInvoices localhost:3000/users/:userId/invoices/vendor/
+// getAllClientInvoices localhost:3000/users/:userId/invoices/client/
+// getOneVendorInvoice(w. lineitems) localhost:3000/users/:userId/invoices/:invoiceId/vendor
+// getOneClientInvoice(w. lineitems) localhost:3000/users/:userId/invoices/:invoiceId/client
+// createInvoice localhost:3000/users/:userId/invoices/vendor/
+// updateInvoice localhost:3000/users/:userId/invoices/:invoiceId/vendor
+// removeInvoicelocalhost:3000/users/:userId/invoices/:invoiceId/vendor
+// createLineItem localhost:3000/users/:userId/invoices/:invoiceId/vendor/line_items
 
 module.exports = {
   login,
-  getid,
   signup,
-  getUserByEmail,
-  create,
-  readVendorInvoices,
-  readClientInvoices,
-  readOne,
-  edit,
-  remove,
-  createLineItems
+  getid,
+  createInvoice,
+  getAllVendorInvoices,
+  getAllClientInvoices,
+  getOneVendorInvoices,
+  getOneClientInvoices,
+  updateInvoice,
+  removeInvoice,
+  createLineItems,
+  togglePaid
 }

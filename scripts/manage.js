@@ -1,10 +1,10 @@
-const { getAllVendorInvoices } = require('./requests')
+const { getAllClientInvoices } = require('./requests')
 const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
 
 function init() {
     const invoiceList = document.querySelector('.invoice-list')
-    getAllVendorInvoices()
+    getAllClientInvoices()
         .then((res) => {
             const invoiceItem = res.data.data.map(a => vendorInvoiceLine(a))
             invoiceList.innerHTML = ''
@@ -15,7 +15,6 @@ function init() {
         const outstandingArray = document.querySelectorAll('.outstanding')
         for (ele of outstandingArray) {
             ele.addEventListener('click', (e) => {
-                console.log(e.target.getAttribute(`data-id`))
                 togglePaid(e.target.getAttribute(`data-id`))
                 //reRender page ()
                 addOutstandingEventListeners()

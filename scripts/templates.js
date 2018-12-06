@@ -63,7 +63,11 @@ const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
 const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
   return `<li class="columns readAll" data-id=${id}>
             <div class="column">
+<<<<<<< HEAD
               <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ id }
+=======
+              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+>>>>>>> ec6eac548f064e3e37e8e98dc2a8d0a276efa310
             </div>
             <div class="column is-two-fifths-desktop">
               <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
@@ -75,7 +79,11 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total })
               <a href="./invoice.html" class="button is-link">View Details</a>
             </span>
             <span>
+<<<<<<< HEAD
             <a class="button is-dark outstanding" data-id=${id}>Mark as Paid</a>
+=======
+            <a class="button is-dark outstanding" data-id=${invoice_number}>Mark as Paid</a>
+>>>>>>> ec6eac548f064e3e37e8e98dc2a8d0a276efa310
             </span>
           </li>`
 }

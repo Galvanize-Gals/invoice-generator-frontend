@@ -8,7 +8,9 @@ const initialize = {
   '/': require('./login').init,
   '/index.html': require('./login').init,
   '/signup.html': require('./signup').init,
-  '/generate.html': require('./generate').init
+  '/generate.html': require('./generate').init,
+  '/received.html': require('./received').init,
+  '/manage.html' : require('./manage').init
 }
 
 const logout = document.querySelector('#logout')
@@ -23,3 +25,4 @@ if (logout) {
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)
+
