@@ -10,6 +10,7 @@ const initialize = {
   '/signup.html': require('./signup').init,
   '/generate.html': require('./generate').init,
   '/received.html': require('./received').init,
+  '/vendor-preview.html': require('./vendorPreview').init,
   '/preview.html': require('./preview').init,
   '/manage.html' : require('./manage').init
 }

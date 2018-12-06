@@ -6822,9 +6822,11 @@ body {
   margin-bottom: 2rem; }
   @media screen and (min-width: 1088px) {
     .invoice-list {
-      text-align: center; } }
+      text-align: left; } }
   .invoice-list li {
     align-items: center; }
+    .invoice-list li .button.is-danger {
+      min-width: 160px; }
     .invoice-list li div {
       text-transform: capitalize; }
     .invoice-list li:hover {

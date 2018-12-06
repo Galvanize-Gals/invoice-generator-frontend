@@ -116,10 +116,13 @@ body {
 .invoice-list {
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $desktop) { text-align: center; }
+  @media screen and (min-width: $desktop) { text-align: left; }
 
   li {
     align-items: center;
+
+
+  .button.is-danger { min-width: 160px; }
 
     div { text-transform: capitalize; }
 

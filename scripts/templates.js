@@ -43,23 +43,6 @@ const header = () => {
   `
 }
 
-const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) => {
-  return `<li class="columns readAll" data-id=${id}>
-    <div class="column">
-      <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
-    </div>
-    <div class="column is-two-fifths-desktop">
-      <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
-    </div>
-    <div class="column">
-      <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total }
-    </div>
-    <span class="column">
-      <a href="./preview.html?id=${ id }" class="button is-link">View</a>
-    </span>
-  </li>`
-}
-
 const preview = ({ id, company, first_name, last_name, email, invoice_number, updated_at, due_date, notes }, lineItems) => {
 
   return `
@@ -160,44 +143,61 @@ const renderLineItem = (id, {description, quantity, rate, subtotal}) => {
   `
 }
 
+const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) => {
+  return `<li class="columns readAll" data-id=${id}>
+    <div class="column is-one-quarter-desktop">
+      <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
+    </div>
+    <div class="column is-two-fifths-desktop">
+      <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${last_name }
+    </div>
+    <div class="column">
+      <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total }
+    </div>
+    <span class="column">
+      <a href="./preview.html?id=${ id }" class="button is-link is-outlined">View</a>
+    </span>
+  </li>`
+}
+
 const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, is_paid }) => {
   if (!is_paid) {
     return `<li class="columns readAll" data-id=${id}>
-            <div class="column">
-              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
-            </div>
-            <div class="column is-two-fifths-desktop">
-              <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name} ${last_name}
-            </div>
-            <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
-            </div>
-            <span class="column">
-              <a href="./invoice.html" class="button is-link">View Details</a>
-            </span>
-            <span>
-            <a class="button is-dark outstanding" data-id=${id}>Mark as Paid</a>
-            </span>
-          </li>`
+      <div class="column is-one-quarter-desktop">
+        <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+      </div>
+      <div class="column is-two-fifths-desktop">
+        <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${last_name }
+      </div>
+      <div class="column">
+        <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total }
+      </div>
+      <span class="column">
+        <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View</a>
+      </span>
+      <span class="column">
+        <a class="button is-danger is-outlined outstanding" data-id=${id}>Mark as Paid</a>
+      </span>
+    </li>`
   }
   else {
     return `<li class="columns readAll" data-id=${id}>
-            <div class="column">
-              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
-            </div>
-            <div class="column is-two-fifths-desktop">
-              <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name} ${last_name}
-            </div>
-            <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
-            </div>
-            <span class="column">
-              <a href="./invoice.html" class="button is-link">View Details</a>
-            </span>
-            <span>
-            <a class="button is-dark paid" data-id=${id}>Mark as Outstanding</a>
-            </span>
-          </li>`
+      <div class="column is-one-quarter-desktop">
+        <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+      </div>
+      <div class="column is-two-fifths-desktop">
+        <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
+      </div>
+      <div class="column">
+        <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total }
+      </div>
+      <span class="column">
+        <a href="./invoice.html" class="button is-link is-outlined">View</a>
+      </span>
+      <span class="column">
+        <a class="button is-danger is-outlined paid" data-id=${id}>Mark as Unpaid</a>
+      </span>
+    </li>`
 
   }
 }
