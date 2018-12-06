@@ -1,4 +1,14 @@
+
 const { header } = require('./templates')
+const { getOneUser } = require('./requests')
+
+getOneUser(localStorage.getItem('id'))
+.then( (response) => {
+  console.log(response.data.data[0].first_name)
+  userName = response.data.data[0].first_name
+  document.querySelector('header.navbar').innerHTML = header(userName)
+})
+
 const path = window.location.pathname
 const navigation = document.querySelector('header.navbar').innerHTML = header()
 const nav = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
