@@ -3,7 +3,7 @@ const path = window.location.pathname
 const welcome = (id) => {
   return `
     <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link"> Welcome, User# ${ id }! </a>
+      <a class="navbar-link"> Welcome, User# ${ id}! </a>
       <div class="navbar-dropdown">
         <a href="./manage.html" class="navbar-item">Manage Invoices</a>
         <a href="./received.html" class="navbar-item">Received Invoices</a>
@@ -20,7 +20,7 @@ const header = () => {
     <!-- start of header template -->
     <nav class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href=${ path !== '/index.html' && path !== '/' && path !== '/signup.html' ? "./dashboard.html" : "./index.html" }>
+        <a class="navbar-item" href=${ path !== '/index.html' && path !== '/' && path !== '/signup.html' ? "./dashboard.html" : "./index.html"}>
           <span class="mdi mdi-library mdi-24px has-text-link"> InvoiceCreator</span>
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems">
@@ -33,8 +33,8 @@ const header = () => {
       <div id="navbarItems" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? signup : welcome(localStorage.getItem('id')) }
-            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? login : logout }
+            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? signup : welcome(localStorage.getItem('id'))}
+            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? login : logout}
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ const header = () => {
   `
 }
 
-const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
+const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) => {
   return `<li class="columns readAll" data-id=${id}>
     <div class="column">
       <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
