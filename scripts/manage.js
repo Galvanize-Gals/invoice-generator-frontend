@@ -1,6 +1,8 @@
 const { getAllVendorInvoices, removeInvoice } = require('./requests')
 const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
+const { addLogoutListener } = require('./utils')
+
 
 function init() {
     const outstandingInvoiceList = document.querySelector('.outstanding')
@@ -30,7 +32,6 @@ function init() {
             addOutstandingEventListeners()
             addPaidEventListeners()
             deleteEventListeners()
-        })
 
     const deleteEventListeners = () => {
         const deleteArray = document.querySelectorAll('.delete_invoice')

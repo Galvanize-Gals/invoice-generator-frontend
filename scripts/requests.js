@@ -34,7 +34,7 @@ const attachHeader = () => {
 
 //accounts
 const login = (credentials) => axios.post(`${base}/login`, credentials)
-const signup = (credentials) => axios.post(`${base}/signup`, credentials)
+const signup = (credentials) => axios.post(`${base}/users`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
 const getUserByEmail = (email) => axios.get(`${base}/users?email=${email}` )
 const getOneUser = (userId) => axios.get(`${base}/users/${userId}`)

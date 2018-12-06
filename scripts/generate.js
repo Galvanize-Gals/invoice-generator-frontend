@@ -1,19 +1,8 @@
 const { getUserByEmail, createInvoice, createLineItems } = require('./requests')
+const { addLogoutListener } = require('./utils')
+
 
 function init() {
-
-  // const qty1 = document.querySelector('.qty1').value
-  // const qty2 = document.querySelector('.qty2').value
-  // const qty3 = document.querySelector('.qty3').value
-  // const qty4 = document.querySelector('.qty4').value
-  // const qty5 = document.querySelector('.qty5').value
-
-  // const rate1 = document.querySelector('.rate1').value
-  // const rate2 = document.querySelector('.rate2').value
-  // const rate3 = document.querySelector('.rate3').value
-  // const rate4 = document.querySelector('.rate4').value
-  // const rate5 = document.querySelector('.rate5').value
-
 
   function calcTotals() {
     const subtotal1 = document.querySelector('.subtotal1')
@@ -95,8 +84,6 @@ function init() {
         const rates = Array.from(document.querySelectorAll('.rate'))
           .map(rate => rate.value)
 
-        console.log(quantities)
-
         const newLineItems = []
 
         for (i = 0; i < descriptions.length; i++) {
@@ -112,13 +99,12 @@ function init() {
             newLineItems.push(lineItem)
 
           }
-
         }
 
         createLineItems(invoiceId, newLineItems)
       })
       .then(() => {
-        // window.location = '/manage.html'
+        window.location = '/manage.html'
       })
   })
 
