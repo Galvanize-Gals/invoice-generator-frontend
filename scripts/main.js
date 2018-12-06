@@ -1,7 +1,7 @@
 
 const { header } = require('./templates')
 const { getOneUser } = require('./requests')
-const { addLogoutListener } = require('./utils')
+const { addLogoutListener, headerJS } = require('./utils')
 
 const userId = localStorage.getItem('id')
 
@@ -15,23 +15,10 @@ if(userId) {
 }
 
 const path = window.location.pathname
-const navigation = document.querySelector('header.navbar').innerHTML = header()
-const nav = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
+document.querySelector('header.navbar').innerHTML = header()
 
-if (navigation) {
-  if (nav.length > 0) {
-    nav.forEach(el => {
-      el.addEventListener('click', () => {
-
-        const target = el.dataset.target;
-        const $target = document.getElementById(target)
-
-        el.classList.toggle('is-active')
-        $target.classList.toggle('is-active')
-      })
-    })
-  }
-}
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+if (isMobile) headerJS()
 
 const initialize = {
   '/': require('./login').init,
