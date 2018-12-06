@@ -3,7 +3,6 @@ const { header } = require('./templates')
 const { getOneUser } = require('./requests')
 const { addLogoutListener } = require('./utils')
 
-
 const userId = localStorage.getItem('id')
 
 if(userId) {
@@ -34,7 +33,6 @@ if (navigation) {
   }
 }
 
-
 const initialize = {
   '/': require('./login').init,
   '/index.html': require('./login').init,
@@ -45,8 +43,6 @@ const initialize = {
   '/preview.html': require('./preview').init,
   '/manage.html' : require('./manage').init
 }
-
-
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)

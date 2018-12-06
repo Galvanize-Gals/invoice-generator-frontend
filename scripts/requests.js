@@ -1,5 +1,6 @@
 const axios = require('axios')
 const base = 'https://invoice-creator-gg.herokuapp.com'
+// const base = 'http://localhost:3000'
 const userId = localStorage.getItem('id')
 const url = `${base}/users/${userId}/invoices`
 
@@ -26,7 +27,7 @@ const attachHeader = () => {
 //       return 'heroku'
 //     }
 //   }
-//   // get: (url) => 
+//   // get: (url) =>
 //   post: (url) => axios.get(`${this.base()}${url}`, attachHeader() )
 // }
 
