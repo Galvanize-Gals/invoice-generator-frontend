@@ -46,7 +46,7 @@ const header = () => {
 const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
   return `<li class="columns readAll" data-id=${id}>
             <div class="column">
-              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> # ${ invoice_number }
             </div>
             <div class="column is-two-fifths-desktop">
               <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
