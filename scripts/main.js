@@ -1,8 +1,22 @@
-require('./header').init()
-
 const { header } = require('./templates')
-document.querySelector('header.navbar').innerHTML = header()
 const path = window.location.pathname
+const navigation = document.querySelector('header.navbar').innerHTML = header()
+const nav = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
+
+if (navigation) {
+  if (nav.length > 0) {
+    nav.forEach(el => {
+      el.addEventListener('click', () => {
+
+        const target = el.dataset.target;
+        const $target = document.getElementById(target)
+
+        el.classList.toggle('is-active')
+        $target.classList.toggle('is-active')
+      })
+    })
+  }
+}
 
 const initialize = {
   '/': require('./login').init,

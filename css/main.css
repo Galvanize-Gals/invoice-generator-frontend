@@ -6752,9 +6752,6 @@ label.panel-block {
 
 header.navbar .navbar-link {
   text-transform: capitalize; }
-  @media screen and (max-width: 769px) {
-    header.navbar .navbar-link {
-      display: none; } }
 
 header.navbar .navbar-item span {
   font-size: 1.5rem;
