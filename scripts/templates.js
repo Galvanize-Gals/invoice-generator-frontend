@@ -1,9 +1,9 @@
 const path = window.location.pathname
 
-const welcome = (id) => {
+const welcome = (userName) => {
   return `
     <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link"> Welcome, User# ${ id}! </a>
+      <a class="navbar-link"> Welcome, ${userName}! </a>
       <div class="navbar-dropdown">
         <a href="./manage.html" class="navbar-item">Manage Invoices</a>
         <a href="./received.html" class="navbar-item">Received Invoices</a>
@@ -11,7 +11,7 @@ const welcome = (id) => {
     </div>`
 }
 
-const header = () => {
+const header = (userName) => {
   let login = `<a href="./index.html" class="button is-light">Login</a>`
   let logout = `<a href="./index.html" id="logout" class="button is-light">Logout</a>`
   let signup = `<a href="./signup.html" class="button is-primary"><strong>Signup</strong></a>`
@@ -33,7 +33,7 @@ const header = () => {
       <div id="navbarItems" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? signup : welcome(localStorage.getItem('id'))}
+            ${ path === '/' || path === '/index.html' || path === '/signup.html' ? signup : welcome(userName)}
             ${ path === '/' || path === '/index.html' || path === '/signup.html' ? login : logout}
           </div>
         </div>
