@@ -60,4 +60,24 @@ const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
           </li>`
 }
 
-module.exports = { header, invoiceLine }
+const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total }) =>{
+  return `<li class="columns readAll" data-id=${id}>
+            <div class="column">
+              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number }
+            </div>
+            <div class="column is-two-fifths-desktop">
+              <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name } ${ last_name }
+            </div>
+            <div class="column">
+              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total }
+            </div>
+            <span class="column">
+              <a href="./invoice.html" class="button is-link">View Details</a>
+            </span>
+            <span>
+            <a class="button is-dark outstanding" data-id=${invoice_number}>Mark as Paid</a>
+            </span>
+          </li>`
+}
+
+module.exports = { header, invoiceLine, vendorInvoiceLine }

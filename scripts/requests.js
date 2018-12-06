@@ -31,6 +31,7 @@ const updateInvoice = (invoiceId, invoice) => axios.put(`${url}/${invoiceId}/ven
 const removeInvoice = (invoiceId) => axios.delete(`${url}/${invoiceId}/vendor`, attachHeader())
 
 const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, lineItems, attachHeader())
+const togglePaid = (invoiceId) => axios.put(`${url}/${invoiceId}/vendor`, attachHeader())
 
 // getAllVendorInvoices localhost:3000/users/:userId/invoices/vendor/
 // getAllClientInvoices localhost:3000/users/:userId/invoices/client/
@@ -52,5 +53,6 @@ module.exports = {
   getOneClientInvoices,
   updateInvoice,
   removeInvoice,
-  createLineItems
+  createLineItems,
+  togglePaid
 }
