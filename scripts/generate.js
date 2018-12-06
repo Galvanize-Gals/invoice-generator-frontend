@@ -1,21 +1,22 @@
-const { createInvoice, createLineItems } = require('./requests')
+const { getUserByEmail, createInvoice, createLineItems } = require('./requests')
 
 function init() {
   const form = document.querySelector('.generateForm')
   form.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    const userEmail = event.target.email.value
+    const userEmail = {
+      'email': event.target.email.value
+    }
 
     let clientId 
     
+    console.log(userEmail)
     getUserByEmail(userEmail)
     .then( response => {
-      console.log(response)
       clientId = response.data.data.id
     })
-    //function that takes an user email and returns that users id
-
+    
     const newInvoice = {
       'invoice_number': event.target.invoiceNumber.value,
       'due_date': event.target.dueDate.value,

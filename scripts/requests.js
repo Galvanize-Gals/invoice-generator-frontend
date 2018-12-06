@@ -20,7 +20,7 @@ const attachHeader = () => {
 const login = (credentials) => axios.post(`${base}/login`, credentials)
 const signup = (credentials) => axios.post(`${base}/signup`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
-const getUserByEmail = (email) => axios.get(url, {email}, attachHeader() )
+const getUserByEmail = (email) => axios.get(`${base}/users`, email )
 
 //invoices
 const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
@@ -47,6 +47,7 @@ module.exports = {
   login,
   signup,
   getid,
+  getUserByEmail,
   createInvoice,
   getAllVendorInvoices,
   getAllClientInvoices,
