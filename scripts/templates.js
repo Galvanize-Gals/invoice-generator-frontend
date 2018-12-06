@@ -138,8 +138,6 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
             </p>
           </div>
 
-          <a href="./manage.html" class="button del is-danger is-medium">Delete</a>
-          <a href="./generate.html" class="button edit is-link is-medium">Edit</a>
           <a href="./manage.html" class="button send is-primary is-medium">Send</a>
           <!-- invoice footer template end -->
 
