@@ -16,10 +16,27 @@ const attachHeader = () => {
     }
   }
 }
+
+// const request = {
+//   base: function(){
+//     if(window.location.hostname.includes('127.0.0.1')){
+//       return 'http://localhost:3000/'
+//     }
+//     else {
+//       return 'heroku'
+//     }
+//   }
+//   // get: (url) => 
+//   post: (url) => axios.get(`${this.base()}${url}`, attachHeader() )
+// }
+
+// request.post('/user?email=')
+
 //accounts
 const login = (credentials) => axios.post(`${base}/login`, credentials)
 const signup = (credentials) => axios.post(`${base}/signup`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
+const getUserByEmail = (email) => axios.get(`${base}/users?email=${email}` )
 
 //invoices
 const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
@@ -30,7 +47,7 @@ const createInvoice = (invoice) => axios.post(`${url}/vendor`, invoice, attachHe
 const updateInvoice = (invoiceId, invoice) => axios.put(`${url}/${invoiceId}/vendor/`, invoice, attachHeader())
 const removeInvoice = (invoiceId) => axios.delete(`${url}/${invoiceId}/vendor`, attachHeader())
 
-const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, lineItems, attachHeader())
+const createLineItems = (invoiceId, lineItems) => axios.post(`${url}/${invoiceId}/vendor/line_items`, {items: lineItems}, attachHeader())
 const togglePaid = (invoiceId) => axios.put(`${url}/${invoiceId}/vendor`, attachHeader())
 
 // getAllVendorInvoices localhost:3000/users/:userId/invoices/vendor/
@@ -46,6 +63,7 @@ module.exports = {
   login,
   signup,
   getid,
+  getUserByEmail,
   createInvoice,
   getAllVendorInvoices,
   getAllClientInvoices,

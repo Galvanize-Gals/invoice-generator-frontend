@@ -1,34 +1,41 @@
-const { create, createLineItems } = require('./requests')
+const { getUserByEmail, createInvoice, createLineItems } = require('./requests')
 
 function init() {
   const form = document.querySelector('.generateForm')
   form.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    const newInvoice = {
-      'invoice_number': event.target.invoiceNumber.value,
-      'due_date': event.target.dueDate.value,
-      'notes': event.target.notes.value
-    }
+    const userEmail = event.target.email.value
+    
+    getUserByEmail(userEmail)
+    .then( response => {
+      const clientId = response.data.data.id
+      
+      const newInvoice = {
+        'invoice_number': event.target.invoiceNumber.value,
+        'due_date': event.target.dueDate.value,
+        'notes': event.target.notes.value,
+        'clientId': parseInt(clientId)
+      }
+      
+      return createInvoice(newInvoice)
+    })
+    .then( response => {
+      const invoiceId = response.data.data.id
 
-    const newLineItems = []
-
-    const descriptions = Array.from(document.querySelectorAll('.desc'))
+      const descriptions = Array.from(document.querySelectorAll('.desc'))
       .map(description => description.value)
-
-    const quantities = Array.from(document.querySelectorAll('.qty'))
+      
+      const quantities = Array.from(document.querySelectorAll('.qty'))
       .map(quantity => quantity.value)
-
-    const rates = Array.from(document.querySelectorAll('.rate'))
+      
+      const rates = Array.from(document.querySelectorAll('.rate'))
       .map(rate => rate.value)
+      
+      const newLineItems = []
 
-
-    create(newInvoice)
-      .then((response) => {
-
-        const invoiceId = response.data.data.id
-
-        for (i = 0; i < descriptions.length; i++) {
+      for (i = 0; i < descriptions.length; i++) {
+        
           const lineItem = {
             description: descriptions[i],
             quantity: quantities[i],
