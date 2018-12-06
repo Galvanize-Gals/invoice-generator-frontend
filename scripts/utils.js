@@ -8,7 +8,6 @@ const notify = (container, message, time) => {
 const addLogoutListener = () => {
   
   const logout = document.querySelector('#logout')
-  console.log('hi', logout)
 
     logout.addEventListener('click', (e) => {
       e.preventDefault()
