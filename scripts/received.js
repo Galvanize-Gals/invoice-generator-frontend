@@ -1,7 +1,10 @@
 const { getAllClientInvoices } = require('./requests')
 const { invoiceLine } = require('./templates')
+const { addLogoutListener } = require('./utils')
+
 
 function init(){
+
     const outstandingInvoiceList = document.querySelector('.outstanding')
     getAllClientInvoices()
         .then((res) => {

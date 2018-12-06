@@ -11,10 +11,13 @@ const init = () => {
     login(creds)
       .then(response => {
         localStorage.setItem('token', response.data.token)
+        return getid()
+      })
+      .then(response => {
+        console.log(response)
+        localStorage.setItem('id', response.data.id)
         window.location = `/dashboard.html`
       })
-      .then(getid)
-      .then(response => localStorage.setItem('id', response.data.id))
       .catch(error => notify('.notification', 'Password does not match!', 2000))
   })
 }

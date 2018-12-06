@@ -13,7 +13,7 @@ const welcome = (userName) => {
 
 const header = (userName) => {
   let login = `<a href="./index.html" class="button is-light">Login</a>`
-  let logout = `<a href="./index.html" id="logout" class="button is-light">Logout</a>`
+  let logout = `<a href="#" id="logout" class="button is-light">Logout</a>`
   let signup = `<a href="./signup.html" class="button is-primary"><strong>Signup</strong></a>`
 
   return `

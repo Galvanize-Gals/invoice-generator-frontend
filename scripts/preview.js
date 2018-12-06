@@ -1,7 +1,10 @@
 const { getOneClientInvoice } = require('./requests')
 const { preview } = require('./templates')
+const { addLogoutListener } = require('./utils')
+
 
 const init = () => {
+  
   const container = document.querySelector('.preview.container')
   const invoice = window.location.search.slice(1)
     .split('&').map(e => e.split('='))

@@ -1,6 +1,8 @@
 const { getAllVendorInvoices } = require('./requests')
 const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
+const { addLogoutListener } = require('./utils')
+
 
 function init() {
     render()
@@ -31,8 +33,7 @@ function render() {
             paidInvoiceList.innerHTML = ''
             paidInvoiceList.innerHTML = invoiceItem.join('\n')
             addPaidEventListeners()
-        })
-      
+        })      
 }
 
 

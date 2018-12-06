@@ -1,12 +1,19 @@
 
 const { header } = require('./templates')
 const { getOneUser } = require('./requests')
+const { addLogoutListener } = require('./utils')
 
-getOneUser(localStorage.getItem('id'))
-.then( (response) => {
-  userName = response.data.data[0].first_name
-  document.querySelector('header.navbar').innerHTML = header(userName)
-})
+
+const userId = localStorage.getItem('id')
+
+if(userId) {
+  getOneUser(localStorage.getItem('id'))
+  .then( (response) => {
+    userName = response.data.data[0].first_name
+    document.querySelector('header.navbar').innerHTML = header(userName)
+    addLogoutListener()
+  })
+}
 
 const path = window.location.pathname
 const navigation = document.querySelector('header.navbar').innerHTML = header()
@@ -27,6 +34,7 @@ if (navigation) {
   }
 }
 
+
 const initialize = {
   '/': require('./login').init,
   '/index.html': require('./login').init,
@@ -38,15 +46,9 @@ const initialize = {
   '/manage.html' : require('./manage').init
 }
 
-const logout = document.querySelector('#logout')
-if (logout) {
-  logout.addEventListener('click', (e) => {
-    e.preventDefault()
-    localStorage.removeItem('token')
-    localStorage.removeItem('id')
-    window.location = '/index.html'
-  })
-}
+
 
 if (initialize.hasOwnProperty(path)) initialize[path]()
 else console.error(`${path} can't initialize`)
+
+module.exports = { addLogoutListener }

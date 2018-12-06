@@ -5,4 +5,18 @@ const notify = (container, message, time) => {
   setTimeout(() => { notice.classList.add('hidden') }, time)
 }
 
-module.exports = { notify }
+const addLogoutListener = () => {
+  
+  const logout = document.querySelector('#logout')
+  console.log('hi', logout)
+
+    logout.addEventListener('click', (e) => {
+      e.preventDefault()
+      localStorage.removeItem('token')
+      localStorage.removeItem('id')
+      window.location = '/index.html'
+    })
+
+}
+
+module.exports = { notify, addLogoutListener }
