@@ -1,7 +1,15 @@
 require('./header').init()
-
 const { header } = require('./templates')
-document.querySelector('header.navbar').innerHTML = header()
+const { getOneUser } = require('./requests')
+
+getOneUser(localStorage.getItem('id'))
+.then( (response) => {
+  console.log(response.data.data[0].first_name)
+  userName = response.data.data[0].first_name
+  document.querySelector('header.navbar').innerHTML = header(userName)
+})
+
+
 const path = window.location.pathname
 
 const initialize = {

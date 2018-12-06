@@ -37,6 +37,7 @@ const login = (credentials) => axios.post(`${base}/login`, credentials)
 const signup = (credentials) => axios.post(`${base}/signup`, credentials)
 const getid = () => axios.get(`${base}/login`, attachHeader())
 const getUserByEmail = (email) => axios.get(`${base}/users?email=${email}` )
+const getOneUser = (userId) => axios.get(`${base}/users/${userId}`)
 
 //invoices
 const getAllVendorInvoices = () => axios.get(`${url}/vendor`, attachHeader())
@@ -64,11 +65,12 @@ module.exports = {
   signup,
   getid,
   getUserByEmail,
-  createInvoice,
+  getOneUser,
   getAllVendorInvoices,
   getAllClientInvoices,
   getOneVendorInvoice,
   getOneClientInvoice,
+  createInvoice,
   updateInvoice,
   removeInvoice,
   createLineItems,
