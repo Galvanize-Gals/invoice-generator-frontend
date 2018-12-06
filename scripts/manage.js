@@ -12,6 +12,10 @@ function init() {
             })
             outstandingInvoiceList.innerHTML = ''
             outstandingInvoiceList.innerHTML = invoiceItem.join('\n')
+
+            addOutstandingEventListeners()
+            addPaidEventListeners()
+            deleteEventListeners()
         })
 
     const paidInvoiceList = document.querySelector('.paid')
@@ -22,6 +26,10 @@ function init() {
             })
             paidInvoiceList.innerHTML = ''
             paidInvoiceList.innerHTML = invoiceItem.join('\n')
+
+            addOutstandingEventListeners()
+            addPaidEventListeners()
+            deleteEventListeners()
         })
 
     const deleteEventListeners = () => {
@@ -31,40 +39,38 @@ function init() {
                 const id = e.target.getAttribute(`data-id`)
                 removeInvoice(id)
                     .then((res) => {
-                        console.log(res.data)
                         location.reload()
                     })
-                
 
             })
         }
     }
 
     const addOutstandingEventListeners = () => {
-        const outstandingArray = document.querySelectorAll('.outstanding')
+        const outstandingArray = document.querySelectorAll('.outstanding_invoice')
         for (ele of outstandingArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                location.reload()
-
+                .then((res) => {
+                    location.reload()
+                })
             })
         }
     }
 
     const addPaidEventListeners = () => {
-        const paidArray = document.querySelectorAll('.paid')
+        const paidArray = document.querySelectorAll('.paid_invoice')
         for (ele of paidArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                location.reload()
-
+                .then((res) => {
+                    location.reload()
+                })
             })
         }
     }
 
-    addOutstandingEventListeners()
-    addPaidEventListeners()
-    deleteEventListeners()
+
 }
 
 module.exports = { init }

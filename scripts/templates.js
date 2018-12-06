@@ -173,7 +173,7 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
             <span>
-            <a class="button is-primary outstanding" data-id=${id}>Mark as Paid</a>
+            <a class="button is-primary outstanding_invoice" data-id=${id}>Mark as Paid</a>
             </span>
             <span>
               <a href="./invoice.html" class="button is-link">View Details</a>
@@ -195,7 +195,7 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
             <span>
-            <a class="button is-primary paid" data-id=${id}>Mark as Outstanding</a>
+            <a class="button is-primary paid_invoice" data-id=${id}>Mark as Outstanding</a>
             </span>
             <span>
               <a href="./invoice.html" class="button is-link">View Details</a>
