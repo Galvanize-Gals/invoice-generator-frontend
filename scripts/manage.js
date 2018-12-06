@@ -1,14 +1,8 @@
-const { getAllVendorInvoices } = require('./requests')
+const { getAllVendorInvoices, removeInvoice } = require('./requests')
 const { vendorInvoiceLine } = require('./templates')
 const { togglePaid } = require('./requests')
 
 function init() {
-    render()
-   
-  
-}
-
-function render() {
     const outstandingInvoiceList = document.querySelector('.outstanding')
     getAllVendorInvoices()
         .then((res) => {
@@ -18,9 +12,7 @@ function render() {
             })
             outstandingInvoiceList.innerHTML = ''
             outstandingInvoiceList.innerHTML = invoiceItem.join('\n')
-            addOutstandingEventListeners()
         })
-       
 
     const paidInvoiceList = document.querySelector('.paid')
     getAllVendorInvoices()
@@ -30,38 +22,49 @@ function render() {
             })
             paidInvoiceList.innerHTML = ''
             paidInvoiceList.innerHTML = invoiceItem.join('\n')
-            addPaidEventListeners()
         })
-      
-}
 
+    const deleteEventListeners = () => {
+        const deleteArray = document.querySelectorAll('.delete_invoice')
+        for (ele of deleteArray) {
+            ele.addEventListener('click', (e) => {
+                const id = e.target.getAttribute(`data-id`)
+                removeInvoice(id)
+                    .then((res) => {
+                        console.log(res.data)
+                        location.reload()
+                    })
+                
 
+            })
+        }
+    }
 
     const addOutstandingEventListeners = () => {
-        const outstandingArray = document.querySelectorAll('.outstanding_invoice')
+        const outstandingArray = document.querySelectorAll('.outstanding')
         for (ele of outstandingArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                .then(()=>{
-                    render()
-                })
-               
+                location.reload()
+
             })
         }
     }
 
     const addPaidEventListeners = () => {
-        const paidArray = document.querySelectorAll('.paid_invoice')
+        const paidArray = document.querySelectorAll('.paid')
         for (ele of paidArray) {
             ele.addEventListener('click', (e) => {
                 togglePaid(e.target.getAttribute(`data-id`))
-                .then(()=>{
-                    render()
-                })
+                location.reload()
+
             })
         }
     }
 
-    
+    addOutstandingEventListeners()
+    addPaidEventListeners()
+    deleteEventListeners()
+}
 
 module.exports = { init }
