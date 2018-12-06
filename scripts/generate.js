@@ -1,4 +1,4 @@
-const { create, createLineItems, getUserByEmail } = require('./requests')
+const { createInvoice, createLineItems } = require('./requests')
 
 function init() {
   const form = document.querySelector('.generateForm')
@@ -35,7 +35,7 @@ function init() {
       .map(rate => rate.value)
 
 
-    create(newInvoice)
+    createInvoice(newInvoice)
       .then((response) => {
 
         const invoiceId = response.data.data.id
