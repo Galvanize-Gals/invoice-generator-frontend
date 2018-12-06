@@ -1,21 +1,21 @@
 const { getUserByEmail, createInvoice, createLineItems } = require('./requests')
 
 function init() {
-  
+
   // const qty1 = document.querySelector('.qty1').value
   // const qty2 = document.querySelector('.qty2').value
   // const qty3 = document.querySelector('.qty3').value
   // const qty4 = document.querySelector('.qty4').value
   // const qty5 = document.querySelector('.qty5').value
-  
+
   // const rate1 = document.querySelector('.rate1').value
   // const rate2 = document.querySelector('.rate2').value
   // const rate3 = document.querySelector('.rate3').value
   // const rate4 = document.querySelector('.rate4').value
   // const rate5 = document.querySelector('.rate5').value
-  
-  
-  function calcTotals () {
+
+
+  function calcTotals() {
     const subtotal1 = document.querySelector('.subtotal1')
     const subtotal2 = document.querySelector('.subtotal2')
     const subtotal3 = document.querySelector('.subtotal3')
@@ -27,7 +27,7 @@ function init() {
     const qty3 = document.querySelector('.qty3').value
     const qty4 = document.querySelector('.qty4').value
     const qty5 = document.querySelector('.qty5').value
-    
+
     const rate1 = document.querySelector('.rate1').value
     const rate2 = document.querySelector('.rate2').value
     const rate3 = document.querySelector('.rate3').value
@@ -42,11 +42,9 @@ function init() {
     subtotal4.textContent = qty4 * rate4
     subtotal5.textContent = qty5 * rate5
 
-    console.log(subtotal1.textContent)
+    const grandTotal = (parseInt(subtotal1.textContent) + parseInt(subtotal2.textContent) + parseInt(subtotal3.textContent) + parseInt(subtotal4.textContent) + parseInt(subtotal5.textContent))
 
-   const grandTotal = (parseInt(subtotal1.textContent) + parseInt(subtotal2.textContent) + parseInt(subtotal3.textContent) + parseInt(subtotal4.textContent) + parseInt(subtotal5.textContent))
-
-   total.textContent = '$' + grandTotal
+    total.textContent = '$' + grandTotal
   }
 
   const qtys = document.querySelectorAll('.qty')
@@ -71,49 +69,56 @@ function init() {
     event.preventDefault()
 
     const userEmail = event.target.email.value
-    
+
     getUserByEmail(userEmail)
-    .then( response => {
-      const clientId = response.data.data.id
-      
-      const newInvoice = {
-        'invoice_number': event.target.invoiceNumber.value,
-        'due_date': event.target.dueDate.value,
-        'notes': event.target.notes.value,
-        'clientId': parseInt(clientId)
-      }
-      
-      return createInvoice(newInvoice)
-    })
-    .then( response => {
-      const invoiceId = response.data.data.id
+      .then(response => {
+        const clientId = response.data.data.id
 
-      const descriptions = Array.from(document.querySelectorAll('.desc'))
-      .map(description => description.value)
-      
-      const quantities = Array.from(document.querySelectorAll('.qty'))
-      .map(quantity => quantity.value)
-      
-      const rates = Array.from(document.querySelectorAll('.rate'))
-      .map(rate => rate.value)
-      
-      const newLineItems = []
+        const newInvoice = {
+          'invoice_number': event.target.invoiceNumber.value,
+          'due_date': event.target.dueDate.value,
+          'notes': event.target.notes.value,
+          'clientId': parseInt(clientId)
+        }
 
-      for (i = 0; i < descriptions.length; i++) {
-        
-          const lineItem = {
-            description: descriptions[i],
-            quantity: quantities[i],
-            rate: rates[i],
-            invoice_id: invoiceId
+        return createInvoice(newInvoice)
+      })
+      .then(response => {
+        const invoiceId = response.data.data.id
+
+        const descriptions = Array.from(document.querySelectorAll('.desc'))
+          .map(description => description.value)
+
+        const quantities = Array.from(document.querySelectorAll('.qty'))
+          .map(quantity => quantity.value)
+
+        const rates = Array.from(document.querySelectorAll('.rate'))
+          .map(rate => rate.value)
+
+        console.log(quantities)
+
+        const newLineItems = []
+
+        for (i = 0; i < descriptions.length; i++) {
+
+          if (descriptions[i] && quantities[i && rates[i]]) {
+
+            const lineItem = {
+              description: descriptions[i],
+              quantity: parseFloat(quantities[i]),
+              rate: parseFloat(rates[i]),
+              invoice_id: parseInt(invoiceId)
+            }
+            newLineItems.push(lineItem)
+
           }
-          newLineItems.push(lineItem)
+
         }
 
         createLineItems(invoiceId, newLineItems)
       })
-      .then ( () => {
-        window.location = '/manage.html'
+      .then(() => {
+        // window.location = '/manage.html'
       })
   })
 
