@@ -141,7 +141,6 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
           </div>
 
           <a href="${document.referrer}" class="button send is-link is-medium">Back</a>
-          <a href="#" id="send" class="button is-primary is-medium">Send</a>
           <!-- invoice footer template end -->
 
         </span>
