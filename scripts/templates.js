@@ -61,7 +61,7 @@ const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) => {
 }
 
 const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, is_paid }) => {
-  if (is_paid) {
+  if (!is_paid) {
     return `<li class="columns readAll" data-id=${id}>
             <div class="column">
               <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
@@ -76,13 +76,12 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <a href="./invoice.html" class="button is-link">View Details</a>
             </span>
             <span>
-            <a class="button is-dark outstanding" data-id=${invoice_number}>Mark as Paid</a>
+            <a class="button is-dark outstanding" data-id=${id}>Mark as Paid</a>
             </span>
           </li>`
   }
-  else {
-    return
-    `<li class="columns readAll" data-id=${id}>
+  else  {
+    return `<li class="columns readAll" data-id=${id}>
             <div class="column">
               <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
             </div>
@@ -96,7 +95,7 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <a href="./invoice.html" class="button is-link">View Details</a>
             </span>
             <span>
-            <a class="button is-dark outstanding" data-id=${invoice_number}>Mark as Outstanding</a>
+            <a class="button is-dark paid" data-id=${id}>Mark as Outstanding</a>
             </span>
           </li>`
 
