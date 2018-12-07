@@ -35,7 +35,7 @@ To use this app, you can either choose below 2 options.
 ### Tech/framework used
 
 * Frontend : HTML / CSS / SASS / JavaScript / Bulma
-* Bakcend : Node.js / Express / Knex.js / PSQL
+* Backend : Node.js / Express / Knex.js / PSQL
 
 
 
