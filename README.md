@@ -1,6 +1,7 @@
-#InvoiceCreator
 
-InvoiceCreator is a simple and elegant solution for creating and sending invoices built for the budding Web Developer.
+# InvoiceCreator
+
+InvoiceCreator is a simple and elegant solution for creating and sending invoices built for the budding Web Developer. Invoice Generator lets you quickly make invoices with our simple invoice template straight from your web browser.
 
 ### Features
 
