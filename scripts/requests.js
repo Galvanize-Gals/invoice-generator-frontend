@@ -26,7 +26,7 @@ const attachHeader = () => {
 //       return 'heroku'
 //     }
 //   }
-//   // get: (url) => 
+//   // get: (url) =>
 //   post: (url) => axios.get(`${this.base()}${url}`, attachHeader() )
 // }
 

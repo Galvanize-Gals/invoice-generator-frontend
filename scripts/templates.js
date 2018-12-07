@@ -87,7 +87,7 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
         <table class="services table is-fullwidth is-hoverable">
           <thead>
             <tr>
-              <th><span class="has-text-primary">Desc.</span></th>
+              <th><span class="has-text-primary">Description</span></th>
               <th><span class="has-text-primary">Qty</span></th>
               <th><span class="has-text-primary">Rate/Hours</span></th>
               <th><span class="has-text-primary">Totals</span></th>
@@ -172,14 +172,18 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
             <div class="column">
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
+
+            <span class="column">
+              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View</a>
+           </span>
+
             <span>
-            <a class="button is-primary outstanding_invoice" data-id=${id}>Mark as Paid</a>
+            <a class="button is-primary outstanding_invoice is-outlined" data-id=${id}>Mark as Paid</a>
             </span>
+           
+       
             <span>
-              <a href="./invoice.html" class="button is-link">View Details</a>
-            </span>
-            <span>
-            <a class="button is-danger delete_invoice" data-id=${id}>Delete</a>
+            <a class="button is-danger delete_invoice is-outlined" data-id=${id}>Delete</a>
             </span>
           </li>`
   }
@@ -194,14 +198,17 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
             <div class="column">
               <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
             </div>
-            <span>
-            <a class="button is-primary paid_invoice" data-id=${id}>Mark as Outstanding</a>
+
+            <span class="column">
+              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View</a>
             </span>
+
             <span>
-              <a href="./invoice.html" class="button is-link">View Details</a>
+            <a class="button is-primary paid_invoice is-outlined" data-id=${id}>Mark Unpaid</a>
             </span>
+          
             <span>
-            <a class="button is-danger delete_invoice" data-id=${id}>Delete</a>
+            <a class="button is-danger delete_invoice is-outlined" data-id=${id}>Delete</a>
             </span>
           </li>`
 
