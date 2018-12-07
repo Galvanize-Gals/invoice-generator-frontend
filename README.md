@@ -24,9 +24,13 @@ To use this app, you can either choose below 2 options.
 ### Usage
 
 1. Create an account to login.
+<img width="345" alt="create_account" src="https://user-images.githubusercontent.com/41387357/49666479-147c2800-fa0d-11e8-9e9e-53823c74e15c.png">
 2. Login to your account.
+<img width="337" alt="login" src="https://user-images.githubusercontent.com/41387357/49666482-1645eb80-fa0d-11e8-873f-3dc59abe8645.png">
 3. View received invoices by clicking Review.
+<img width="1147" alt="received invoices" src="https://user-images.githubusercontent.com/41387357/49666484-18a84580-fa0d-11e8-97ec-416067c0e3e8.png">
 4. Create, send and sort invoices by clicking Manage.
+<img width="1145" alt="manage invoices" src="https://user-images.githubusercontent.com/41387357/49666487-19d97280-fa0d-11e8-8f42-22b118a0d97c.png">
 
 ### Tech/framework used
 
