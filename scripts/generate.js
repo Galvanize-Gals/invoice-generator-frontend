@@ -61,7 +61,6 @@ function init() {
 
     getUserByEmail(userEmail)
       .then(response => {
-        console.log(response.data.data.id)
         const clientId = response.data.data.id
 
         const newInvoice = {
@@ -88,8 +87,9 @@ function init() {
         const newLineItems = []
 
         for (i = 0; i < descriptions.length; i++) {
-
-          if (descriptions[i] && quantities[i && rates[i]]) {
+          console.log(descriptions[i]);
+          
+          if (descriptions[i] && quantities[i] && rates[i]) {
 
             const lineItem = {
               description: descriptions[i],
@@ -101,7 +101,7 @@ function init() {
 
           }
         }
-
+        console.log(newLineItems)
         return createLineItems(invoiceId, newLineItems)
       })
       .then(() => {
