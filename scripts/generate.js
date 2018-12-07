@@ -61,6 +61,7 @@ function init() {
 
     getUserByEmail(userEmail)
       .then(response => {
+        console.log(response.data.data.id)
         const clientId = response.data.data.id
 
         const newInvoice = {
@@ -101,7 +102,7 @@ function init() {
           }
         }
 
-        createLineItems(invoiceId, newLineItems)
+        return createLineItems(invoiceId, newLineItems)
       })
       .then(() => {
         window.location = '/manage.html'

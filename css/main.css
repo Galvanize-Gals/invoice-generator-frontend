@@ -1462,6 +1462,8 @@ a.box:active {
   .button.is-link {
     background-color: #3273dc;
     border-color: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
     color: #fff; }
     .button.is-link:hover, .button.is-link.is-hovered {
       background-color: #276cda;
