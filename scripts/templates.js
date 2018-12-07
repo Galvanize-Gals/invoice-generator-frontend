@@ -61,7 +61,7 @@ const preview = ({ id, company, first_name, last_name, email, invoice_number, up
           <div class="billing-details columns">
             <div class="is-three-fifths-desktop client column">
               <h3 class="title is-5 has-text-primary">
-                Bill To
+                Send Payments To:
               </h3>
               <p class="has-text-grey content">
                 ${ company !== null ? company : '' } <br/>
