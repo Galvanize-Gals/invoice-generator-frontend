@@ -155,7 +155,7 @@ const invoiceLine = ({ id, invoice_number, first_name, last_name, total }) => {
       <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total }
     </div>
     <span class="column">
-      <a href="./preview.html?id=${ id }" class="button is-link is-outlined">View</a>
+      <a href="./preview.html?id=${ id }" class="button is-link is-outlined">View Invoice</a>
     </span>
   </li>`
 }
@@ -164,17 +164,17 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
   if (!is_paid) {
     return `<li class="columns readAll" data-id=${id}>
             <div class="column">
-              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> #${ invoice_number}
+              <span class="mdi mdi-receipt mdi-24px has-text-grey-light"></span> ${ invoice_number}
             </div>
             <div class="column is-two-fifths-desktop">
               <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name} ${last_name}
             </div>
             <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
+              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total}
             </div>
 
             <span class="column">
-              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View</a>
+              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View Invoice</a>
            </span>
 
             <span class="column">
@@ -196,11 +196,11 @@ const vendorInvoiceLine = ({ id, invoice_number, first_name, last_name, total, i
               <span class="mdi mdi-account mdi-24px has-text-grey-light"></span> ${ first_name} ${last_name}
             </div>
             <div class="column">
-              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> ${ total}
+              <span class="mdi mdi-cash-multiple mdi-24px has-text-grey-light"></span> $${ total}
             </div>
 
             <span class="column">
-              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View</a>
+              <a href="./vendor-preview.html?id=${id}" class="button is-link is-outlined">View Invoice</a>
             </span>
 
             <span class="column">
